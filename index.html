@@ -753,7 +753,16 @@
     </div>
 
     <footer>
-        <p>Gentyl (Wim Vanhastel)</p>
+        <div style="max-width: 500px; margin: 0 auto 2rem;">
+            <h3 style="color: #d4af37; margin-bottom: 1rem;">Snel Contact</h3>
+            <form action="https://formspree.io/f/mreennoz" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="text" name="name" placeholder="Naam" required style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; font-size: 0.95rem;">
+                <input type="email" name="email" placeholder="Email" required style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; font-size: 0.95rem;">
+                <textarea name="message" placeholder="Bericht" required rows="3" style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; resize: vertical; font-size: 0.95rem;"></textarea>
+                <button type="submit" style="background: #d4af37; color: #000; border: none; padding: 0.8rem; font-size: 1rem; border-radius: 5px; cursor: pointer; font-weight: bold;">Versturen</button>
+            </form>
+        </div>
+        <p style="margin-top: 2rem;">Gentyl (Wim Vanhastel)</p>
         <p>© 2025 - Alle rechten voorbehouden</p>
     </footer>
 
