@@ -460,6 +460,7 @@
         <button onclick="showPage('videos')" class="nav-btn">Video's</button>
         <button onclick="showPage('poems-list')" class="nav-btn">Gedichten</button>
         <button onclick="showPage('gallery')" class="nav-btn">Galerij</button>
+        <button onclick="showPage('contact')" class="nav-btn">Contact</button>
     </nav>
 
     <div class="container">
@@ -628,7 +629,32 @@
                 </div>
             </div>
         </div>
-
+<!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <div class="section-header">
+                <h2>Contact</h2>
+                <p>Laat een bericht achter</p>
+            </div>
+            <div style="max-width: 600px; margin: 3rem auto; padding: 2rem; background: rgba(40,40,40,0.8); border-radius: 15px; border: 2px solid #d4af37;">
+                <form action="https://formspree.io/f/mreennoz" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <label style="color: #d4af37; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Naam</label>
+                        <input type="text" name="name" required style="width: 100%; padding: 0.8rem; font-size: 1rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white;">
+                    </div>
+                    <div>
+                        <label style="color: #d4af37; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Email</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 0.8rem; font-size: 1rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white;">
+                    </div>
+                    <div>
+                        <label style="color: #d4af37; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Bericht</label>
+                        <textarea name="message" required rows="6" style="width: 100%; padding: 0.8rem; font-size: 1rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background: #d4af37; color: #000; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                        Versturen
+                    </button>
+                </form>
+            </div>
+        </div>
         <!-- GALLERY PAGE -->
         <div id="gallery" class="page">
             <div class="section-header">
