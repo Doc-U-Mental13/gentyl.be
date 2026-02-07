@@ -127,6 +127,48 @@
             border-radius: 10px;
         }
 
+        /* VIDEO CATEGORY OVERVIEW */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .category-card {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            background: rgba(60, 60, 60, 0.9);
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-title {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .category-count {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+
         /* VIDEO STYLING */
         .video-grid {
             display: grid;
@@ -232,6 +274,52 @@
             font-weight: bold;
         }
 
+        /* BACK BUTTON */
+        .back-to-list {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .back-to-list button {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+            padding: 1rem 3rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .back-to-list button:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        /* PROMO BOX */
+        .promo-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .promo-box p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .promo-box .signature {
+            color: #d4af37;
+            font-style: italic;
+            margin-top: 2rem;
+            font-size: 1.3rem;
+        }
+
         /* POEM PAGE STYLING */
         .poem-page {
             background: rgba(30, 30, 30, 0.9);
@@ -300,27 +388,6 @@
             font-size: 1.1rem;
         }
 
-        .back-to-list {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .back-to-list button {
-            background: transparent;
-            color: #d4af37;
-            border: 2px solid #d4af37;
-            padding: 1rem 3rem;
-            cursor: pointer;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            transition: all 0.3s;
-        }
-
-        .back-to-list button:hover {
-            background: #d4af37;
-            color: #000;
-        }
-
         /* POEM LIST STYLING */
         .poem-list {
             display: grid;
@@ -375,6 +442,7 @@
             transition: transform 0.3s;
             border: 2px solid rgba(212, 175, 55, 0.2);
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            cursor: pointer;
         }
 
         .gallery-item:hover {
@@ -385,13 +453,8 @@
         .gallery-image {
             width: 100%;
             height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
         }
 
         .gallery-caption {
@@ -414,9 +477,76 @@
             margin-bottom: 1rem;
         }
 
+        .section-header h3 {
+            font-size: 2rem;
+            color: #d4af37;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
         .section-header p {
             font-size: 1.2rem;
             color: #888;
+        }
+
+        /* VEKEMAN PROJECTS STYLING */
+        .vekeman-intro {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid #d4af37;
+        }
+
+        .vekeman-intro p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .vekeman-quote {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            border-radius: 10px;
+            font-style: italic;
+            color: #d4af37;
+            margin-top: 2rem;
+            border-left: 4px solid #d4af37;
+        }
+
+        .vekeman-quote p {
+            margin-bottom: 1rem;
+        }
+
+        .vekeman-author {
+            text-align: right;
+            color: #ccc;
+            font-size: 1.1rem;
+        }
+
+        .vekeman-section {
+            margin: 5rem 0;
+            padding: 3rem;
+            background: rgba(30, 30, 30, 0.6);
+            border-radius: 15px;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .vekeman-section h3 {
+            color: #d4af37;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .placeholder-text {
+            text-align: center;
+            padding: 3rem;
+            color: #888;
+            font-size: 1.2rem;
+            font-style: italic;
         }
 
         footer {
@@ -444,6 +574,7 @@
             .poem-page h2 { font-size: 1.8rem; }
             .poem-text { font-size: 1.1rem; }
             .video-grid { grid-template-columns: 1fr; }
+            .category-grid { grid-template-columns: 1fr; }
             nav { padding: 1rem; }
             nav button { padding: 0.6rem 1.2rem; font-size: 0.95rem; }
         }
@@ -457,9 +588,10 @@
 
     <nav>
         <button onclick="showPage('home')" class="nav-btn active">Home</button>
-        <button onclick="showPage('videos')" class="nav-btn">Video's</button>
+        <button onclick="showPage('videos-overview')" class="nav-btn">Video's</button>
         <button onclick="showPage('poems-list')" class="nav-btn">Gedichten</button>
         <button onclick="showPage('gallery')" class="nav-btn">Galerij</button>
+        <button onclick="showPage('vekeman-projects')" class="nav-btn">Vekeman Projects</button>
         <button onclick="showPage('contact')" class="nav-btn">Contact</button>
     </nav>
 
@@ -478,11 +610,44 @@
             </div>
         </div>
 
-       <!-- VIDEOS PAGE -->
-        <div id="videos" class="page">
+        <!-- VIDEOS OVERVIEW PAGE -->
+        <div id="videos-overview" class="page">
             <div class="section-header">
                 <h2>Video's</h2>
-                <p>Klik op play om te bekijken</p>
+                <p>Kies een categorie</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card" onclick="showPage('videos-muziek')">
+                    <div class="category-icon">🎵</div>
+                    <div class="category-title">Muziekvideo's</div>
+                    <div class="category-count">6 video's</div>
+                </div>
+                <div class="category-card" onclick="showPage('videos-animatie')">
+                    <div class="category-icon">🎬</div>
+                    <div class="category-title">Animatievideo's</div>
+                    <div class="category-count">1 video</div>
+                </div>
+                <div class="category-card" onclick="showPage('videos-humor')">
+                    <div class="category-icon">😂</div>
+                    <div class="category-title">Humorvideo's</div>
+                    <div class="category-count">1 video</div>
+                </div>
+                <div class="category-card" onclick="showPage('videos-verjaardag')">
+                    <div class="category-icon">🎂</div>
+                    <div class="category-title">Verjaardagsvideo's</div>
+                    <div class="category-count">Op aanvraag</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MUZIEKVIDEO'S PAGE -->
+        <div id="videos-muziek" class="page">
+            <div class="back-to-list">
+                <button onclick="showPage('videos-overview')">← Terug naar video categorieën</button>
+            </div>
+            <div class="section-header">
+                <h2>🎵 Muziekvideo's</h2>
+                <p>Muziek en tekst door Gentyl</p>
             </div>
             <div class="video-grid">
                 <div class="video-item">
@@ -497,45 +662,25 @@
                         </div>
                         <div class="play-button"></div>
                     </div>
-                    <div class="video-number">Video 1 - Frietkot Lied</div>
+                    <div class="video-number">Frietkot Lied</div>
                     <a href="https://www.youtube.com/watch?v=75jLo8nzQmc" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
-                <div class="video-item">
-                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; text-align: center; padding: 2rem; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=iRAwDJQmO_E', '_blank')">
-                            <div><strong>Baroness Pierard</strong><br>en het gouden juwelenkistje</div>
-                        </div>
-                        <div class="play-button"></div>
-                    </div>
-                    <div class="video-number">Video 2 - Baroness Pierard</div>
-                    <a href="https://www.youtube.com/watch?v=iRAwDJQmO_E" target="_blank" class="video-link">Bekijk op YouTube →</a>
-                </div>
-                <div class="video-item">
-                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
-                        <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=kOVqERV6lg4', '_blank')">
-                            <div style="color: white; font-size: 2rem; text-align: center;">
-                                <div style="font-size: 3rem;">▶️</div>
-                                <p>Christophe Vekeman als C.V.-Man</p>
-                            </div>
-                        </div>
-                        <div class="play-button"></div>
-                    </div>
-                    <div class="video-number">Video 3 - C.V.-Man</div>
-                    <a href="https://www.youtube.com/watch?v=kOVqERV6lg4" target="_blank" class="video-link">Bekijk op YouTube →</a>
-                </div>
+
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=qjmWL-1yFmM', '_blank')">
                             <div style="text-align: center;">
                                 <div style="font-size: 4rem; color: #ff69b4; font-weight: bold; text-shadow: 0 0 20px #ff69b4;">SEX</div>
-                                <div style="font-size: 1.5rem; color: #4dd0e1; font-style: italic; margin-top: 1rem;">GENTYL</div>
+                                <div style="font-size: 1.5rem; color: #4dd0e1; font-style: italic; margin-top: 1rem;">is not Love</div>
+                                <div style="font-size: 1.2rem; color: #4dd0e1; margin-top: 0.5rem;">GENTYL</div>
                             </div>
                         </div>
                         <div class="play-button"></div>
                     </div>
-                    <div class="video-number">Video 4 - SEX</div>
+                    <div class="video-number">Sex is not Love</div>
                     <a href="https://www.youtube.com/watch?v=qjmWL-1yFmM" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
+
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=ND_F44_SbhQ', '_blank')">
@@ -546,9 +691,10 @@
                         </div>
                         <div class="play-button"></div>
                     </div>
-                    <div class="video-number">Video 5 - Egotripper</div>
+                    <div class="video-number">Egotripper</div>
                     <a href="https://www.youtube.com/watch?v=ND_F44_SbhQ" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
+
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 2rem; cursor: pointer; position: relative; overflow: hidden;" onclick="window.open('https://www.youtube.com/watch?v=2f9-Jrpav5o', '_blank')">
@@ -560,9 +706,10 @@
                         </div>
                         <div class="play-button"></div>
                     </div>
-                    <div class="video-number">Video 6 - Bling-bling</div>
+                    <div class="video-number">Bling-bling</div>
                     <a href="https://www.youtube.com/watch?v=2f9-Jrpav5o" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
+
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=gMu4ytAaQSI', '_blank')">
@@ -572,9 +719,10 @@
                         </div>
                         <div class="play-button"></div>
                     </div>
-                    <div class="video-number">Video 7 - MarryYouAnna</div>
+                    <div class="video-number">MarryYouAnna</div>
                     <a href="https://www.youtube.com/watch?v=gMu4ytAaQSI" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
+
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff6b9d, #feca57); display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 2rem; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=J560KlokBHU', '_blank')">
@@ -585,9 +733,45 @@
                         </div>
                         <div class="play-button"></div>
                     </div>
-                    <div class="video-number">Video 8 - Lekker Verwennen</div>
+                    <div class="video-number">Lekker Verwennen</div>
                     <a href="https://www.youtube.com/watch?v=J560KlokBHU" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
+            </div>
+        </div>
+
+        <!-- ANIMATIEVIDEO'S PAGE -->
+        <div id="videos-animatie" class="page">
+            <div class="back-to-list">
+                <button onclick="showPage('videos-overview')">← Terug naar video categorieën</button>
+            </div>
+            <div class="section-header">
+                <h2>🎬 Animatievideo's</h2>
+                <p>Geanimeerde verhalen</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; text-align: center; padding: 2rem; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=iRAwDJQmO_E', '_blank')">
+                            <div><strong>Baroness Pierard</strong><br>en het gouden juwelenkistje</div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Baroness Pierard</div>
+                    <a href="https://www.youtube.com/watch?v=iRAwDJQmO_E" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- HUMORVIDEO'S PAGE -->
+        <div id="videos-humor" class="page">
+            <div class="back-to-list">
+                <button onclick="showPage('videos-overview')">← Terug naar video categorieën</button>
+            </div>
+            <div class="section-header">
+                <h2>😂 Humorvideo's</h2>
+                <p>Lachen met een knipoog</p>
+            </div>
+            <div class="video-grid">
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=pkGnb-o70XY', '_blank')">
@@ -598,9 +782,98 @@
                         </div>
                         <div class="play-button"></div>
                     </div>
-                    <div class="video-number">Video 9 - Donald van Rossem kloon</div>
+                    <div class="video-number">Donald van Rossem kloon</div>
                     <a href="https://www.youtube.com/watch?v=pkGnb-o70XY" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
+            </div>
+        </div>
+
+        <!-- VERJAARDAGSVIDEO'S PAGE -->
+        <div id="videos-verjaardag" class="page">
+            <div class="back-to-list">
+                <button onclick="showPage('videos-overview')">← Terug naar video categorieën</button>
+            </div>
+            <div class="section-header">
+                <h2>🎂 Verjaardagsvideo's</h2>
+                <p>Persoonlijke video's op maat</p>
+            </div>
+            <div class="promo-box">
+                <p>💝 Wil jij ook zo'n persoonlijk videoclip voor een speciale gelegenheid?</p>
+                <p>Of het nu voor een verjaardag, jubileum, huwelijk of ander bijzonder moment is - ik maak met plezier een unieke video op maat!</p>
+                <p>Stuur me gerust een bericht via het contactformulier voor meer info. Samen maken we er iets moois van! 🎬✨</p>
+                <p class="signature">Gentyl (Wim Vanhastel)</p>
+            </div>
+        </div>
+
+        <!-- VEKEMAN PROJECTS PAGE -->
+        <div id="vekeman-projects" class="page">
+            <div class="section-header">
+                <h2>Vekeman Projects</h2>
+                <p>Creaties geïnspireerd door Christophe Vekeman</p>
+            </div>
+
+            <!-- SECTIE 1: VEKEMAN COLUMNS IN BEELD -->
+            <div class="vekeman-section">
+                <h3>✍️ Vekeman Columns in beeld door Gentyl</h3>
+                
+                <div class="vekeman-intro">
+                    <p>Christophe Vekeman's columns in De Standaard Weekblad waren voor mij wekelijks een uitnodiging tot creëren. Een jaar lang vertaalde ik zijn woorden naar beelden - prenten (visueeltjes zoals ik ze zelf noem).</p>
+                    
+                    <div class="vekeman-quote">
+                        <p>"Al vele weken achtereen mag ik het tot mijn grote vreugde meemaken dat mijn column in De Standaard Weekblad Wim Vanhastel tot inspiratie strekt voor een collage."</p>
+                        <p class="vekeman-author">- Christophe Vekeman</p>
+                    </div>
+                </div>
+
+                <div class="placeholder-text">
+                    <p>🎨 Binnenkort beschikbaar: 52 columns met bijbehorende visueeltjes</p>
+                    <p>Elke week een nieuwe interpretatie, elk visueel een creatief antwoord op Christophe's woorden.</p>
+                </div>
+            </div>
+
+            <!-- SECTIE 2: VEKEMAN VIDEO'S -->
+            <div class="vekeman-section">
+                <h3>🎬 Vekeman Video's door Gentyl</h3>
+                
+                <div class="video-grid">
+                    <div class="video-item">
+                        <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                            <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=kOVqERV6lg4', '_blank')">
+                                <div style="color: white; font-size: 2rem; text-align: center;">
+                                    <div style="font-size: 3rem;">▶️</div>
+                                    <p>Christophe Vekeman als C.V.-Man</p>
+                                </div>
+                            </div>
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="video-number">C.V.-Man</div>
+                        <a href="https://www.youtube.com/watch?v=kOVqERV6lg4" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                    </div>
+
+                    <div class="video-item">
+                        <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=yw2V20612aY', '_blank')">
+                                <div style="color: white; font-size: 1.5rem; text-align: center; padding: 2rem;">
+                                    <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">🤠</div>
+                                    <p><strong>Vekeman Strip:</strong></p>
+                                    <p>"De Lachvonturen van Buck -<br>De Literaire Cowboy"</p>
+                                </div>
+                            </div>
+                            <div class="play-button"></div>
+                        </div>
+                        <div class="video-number">Buck - De Literaire Cowboy</div>
+                        <a href="https://www.youtube.com/watch?v=yw2V20612aY" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTIE 3: VEKEMAN PRENTEN ALGEMEEN -->
+            <div class="vekeman-section">
+                <h3>🖼️ Vekeman Prenten Algemeen door Gentyl</h3>
+                
+                <div class="placeholder-text">
+                    <p>🎨 Binnenkort beschikbaar: Galerij met diverse Vekeman-geïnspireerde prenten</p>
+                    <p>Prenten die verder gaan dan de wekelijkse columns - vrije interpretaties en creatieve reacties op Vekeman's oeuvre.</p>
                 </div>
             </div>
         </div>
@@ -629,13 +902,17 @@
                 </div>
             </div>
         </div>
-<!-- CONTACT PAGE -->
+
+        <!-- CONTACT PAGE -->
         <div id="contact" class="page">
             <div class="section-header">
                 <h2>Contact</h2>
                 <p>Laat een bericht achter</p>
             </div>
-            <div style="max-width: 600px; margin: 3rem auto; padding: 2rem; background: rgba(40,40,40,0.8); border-radius: 15px; border: 2px solid #d4af37;">
+            <div style="max-width: 600px; margin: 0 auto 3rem; padding: 2rem; background: rgba(40,40,40,0.8); border-radius: 15px; border: 2px solid #d4af37;">
+                <p style="color: #e0e0e0; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; text-align: center;">
+                    Kunst leeft door de dialoog die het creëert. Heeft één van mijn gedichten, video's of beelden iets bij jou losgemaakt? Laat gerust een bericht achter. Elke reactie, vraag of gedachte is welkom.
+                </p>
                 <form action="https://formspree.io/f/mreennoz" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
                     <div>
                         <label style="color: #d4af37; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Naam</label>
@@ -655,6 +932,7 @@
                 </form>
             </div>
         </div>
+
         <!-- GALLERY PAGE -->
         <div id="gallery" class="page">
             <div class="section-header">
@@ -662,92 +940,90 @@
                 <p>Een selectie van visuele creaties</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item" onclick="window.open('images/IMG_3988.JPG', '_blank')" style="cursor: pointer;">
-                    <img src="images/IMG_3988.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                <div class="gallery-item" onclick="window.open('images/IMG_3988.JPG', '_blank')">
+                    <img src="images/IMG_3988.JPG" class="gallery-image" alt="Enjoy the ride">
                     <div class="gallery-caption">Enjoy the ride</div>
                 </div>
                 
-                <div class="gallery-item" onclick="window.open('images/Gentyl foto cirkel zwart met naam.png', '_blank')" style="cursor: pointer;">
-    <img src="images/Gentyl foto cirkel zwart met naam.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">ZELF PORTRET</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Gentyl_foto_cirkel_zwart_met_naam.png', '_blank')">
+                    <img src="images/Gentyl_foto_cirkel_zwart_met_naam.png" class="gallery-image" alt="Zelfportret">
+                    <div class="gallery-caption">ZELF PORTRET</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/IMG_7259.JPG', '_blank')" style="cursor: pointer;">
-    <img src="images/IMG_7259.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">bomenbos</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/IMG_7259.JPG', '_blank')">
+                    <img src="images/IMG_7259.JPG" class="gallery-image" alt="Bomenbos">
+                    <div class="gallery-caption">bomenbos</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Kom-Mok.png', '_blank')" style="cursor: pointer;">
-    <img src="images/Kom-Mok.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">KOM/MOK-Spiegelgedicht</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/KomMok.png', '_blank')">
+                    <img src="images/KomMok.png" class="gallery-image" alt="KOM/MOK-Spiegelgedicht">
+                    <div class="gallery-caption">KOM/MOK-Spiegelgedicht</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Mens zijn lastig.JPG', '_blank')" style="cursor: pointer;">
-    <img src="images/Mens zijn lastig.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">Waarom is mens zijn zo lastig?</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Mens_zijn_lastig.JPG', '_blank')">
+                    <img src="images/Mens_zijn_lastig.JPG" class="gallery-image" alt="Waarom is mens zijn zo lastig?">
+                    <div class="gallery-caption">Waarom is mens zijn zo lastig?</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Ceci n'est pas un dauphin.JPG', '_blank')" style="cursor: pointer;">
-    <img src="images/Ceci n'est pas un dauphin.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">Ceci n'est pas un dauphin</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Ceci_nest_pas_un_dauphin.JPG', '_blank')">
+                    <img src="images/Ceci_nest_pas_un_dauphin.JPG" class="gallery-image" alt="Ceci n'est pas un dauphin">
+                    <div class="gallery-caption">Ceci n'est pas un dauphin</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Vanaf morgen....png', '_blank')" style="cursor: pointer;">
-    <div class="gallery-image" style="background: linear-gradient(to bottom, #ff6600, #ff9933); color: #660000; flex-direction: column; display: flex; align-items: center; justify-content: center;">
-        <p style="font-size: 1.6rem; font-weight: bold;">Vanaf morgen<br>stel ik alles uit!</p>
-        <div style="font-size: 4rem; margin-top: 1rem;">⏳</div>
-    </div>
-    <div class="gallery-caption">Uitstelgedrag</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Vanaf morgen....png', '_blank')">
+                    <img src="images/Vanaf morgen....png" class="gallery-image" alt="Uitstelgedrag">
+                    <div class="gallery-caption">Uitstelgedrag</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Aardkloot.png', '_blank')" style="cursor: pointer;">
-    <div class="gallery-image" style="background: linear-gradient(to right, #cc0000, #ffcc00, #00cc00); color: white; font-weight: bold; display: flex; align-items: center; justify-content: center;">
-        <p style="font-size: 1.4rem; text-shadow: 2px 2px 4px black;">Moeder Aarde<br>in transitie naar<br>Aardkloot</p>
-    </div>
-    <div class="gallery-caption">Moeder Aarde</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Aardkloot.png', '_blank')">
+                    <img src="images/Aardkloot.png" class="gallery-image" alt="Moeder Aarde">
+                    <div class="gallery-caption">Moeder Aarde</div>
+                </div>
 
-               <div class="gallery-item" onclick="window.open('images/USA SLOGAN.png', '_blank')" style="cursor: pointer;">
-    <div style="width: 100%; height: 300px; background: black; display: flex; align-items: center; justify-content: center; border-radius: 15px 15px 0 0;">
-        <img src="images/USA SLOGAN.png" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-    </div>
-    <div class="gallery-caption">Second Amendment</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/USA_SLOGAN.png', '_blank')">
+                    <img src="images/USA_SLOGAN.png" class="gallery-image" alt="Second Amendment">
+                    <div class="gallery-caption">Second Amendment</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Tunnelvisie.jpg', '_blank')" style="cursor: pointer;">
-    <div class="gallery-image" style="background: linear-gradient(to right, #ff0000, #ff6600, #ffcc00); color: black; display: flex; align-items: center; justify-content: center;">
-        <div>
-            <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Tunnelvisie</p>
-            <p style="font-size: 1rem;">Ik heb een gedicht geschreven<br>wat iedereen moet gelezen hebben...<br><br>De tunnel was open maar gesloten...<br><br>pizza? 🍕</p>
-        </div>
-    </div>
-    <div class="gallery-caption">Tunnelvisie</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Tunnelvisie.jpg', '_blank')">
+                    <img src="images/Tunnelvisie.jpg" class="gallery-image" alt="Tunnelvisie">
+                    <div class="gallery-caption">Tunnelvisie</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman Wordt het kind... .png', '_blank')" style="cursor: pointer;">
-    <img src="images/Wimpie Wijsman Wordt het kind... .png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie_Wijsman_Wordt_het_kind____.png', '_blank')">
+                    <img src="images/Wimpie_Wijsman_Wordt_het_kind____.png" class="gallery-image" alt="Wimpie Wijsman - Humor">
+                    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman Wat uw ene oog ziet.png', '_blank')" style="cursor: pointer;">
-    <img src="images/Wimpie Wijsman Wat uw ene oog ziet.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie_Wijsman_Wat_uw_ene_oog_ziet.png', '_blank')">
+                    <img src="images/Wimpie_Wijsman_Wat_uw_ene_oog_ziet.png" class="gallery-image" alt="Wimpie Wijsman - Humor">
+                    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman lippenzalf.png', '_blank')" style="cursor: pointer;">
-    <img src="images/Wimpie Wijsman lippenzalf.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie_Wijsman_lippenzalf.png', '_blank')">
+                    <img src="images/Wimpie_Wijsman_lippenzalf.png" class="gallery-image" alt="Wimpie Wijsman - Humor">
+                    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman Wordt het kind...EN.png', '_blank')" style="cursor: pointer;">
-    <img src="images/Wimpie Wijsman Wordt het kind...EN.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">Wimpie Wiseman (EN) - Humor</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie_Wijsman_Wordt_het_kind___EN.png', '_blank')">
+                    <img src="images/Wimpie_Wijsman_Wordt_het_kind___EN.png" class="gallery-image" alt="Wimpie Wiseman (EN) - Humor">
+                    <div class="gallery-caption">Wimpie Wiseman (EN) - Humor</div>
+                </div>
 
-                <div class="gallery-item" onclick="window.open('images/Wimpie Wiseman lip ointment.png', '_blank')" style="cursor: pointer;">
-    <img src="images/Wimpie Wiseman lip ointment.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
-    <div class="gallery-caption">Wimpie Wiseman (EN) - Humor</div>
-</div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie_Wiseman_lip_ointment.png', '_blank')">
+                    <img src="images/Wimpie_Wiseman_lip_ointment.png" class="gallery-image" alt="Wimpie Wiseman (EN) - Humor">
+                    <div class="gallery-caption">Wimpie Wiseman (EN) - Humor</div>
+                </div>
+
+                <div class="gallery-item" onclick="window.open('images/MUIZENVOER_Kalender_2024_versie.png', '_blank')">
+                    <img src="images/MUIZENVOER_Kalender_2024_versie.png" class="gallery-image" alt="Muizenvoer">
+                    <div class="gallery-caption">Muizenvoer</div>
+                </div>
+
+                <div class="gallery-item" onclick="window.open('images/NIETIG_Kalender_2024_versie.png', '_blank')">
+                    <img src="images/NIETIG_Kalender_2024_versie.png" class="gallery-image" alt="Nietig">
+                    <div class="gallery-caption">Nietig</div>
+                </div>
             </div>
         </div>
     </div>
@@ -1076,12 +1352,16 @@ Gentyl`
         let currentPoemIndex = 0;
 
         function showPage(pageId) {
+            // Alle pagina's verbergen
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Geselecteerde pagina tonen
             document.getElementById(pageId).classList.add('active');
             
+            // Actieve knop markeren
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
             
+            // Scroll naar boven
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -1128,6 +1408,7 @@ Gentyl`
             }
         }
 
+        // Initialiseer de gedichtenlijst bij het laden van de pagina
         createPoemList();
     </script>
 </body>
