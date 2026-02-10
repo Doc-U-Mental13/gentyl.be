@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gentyl - Portfolio Wim Vanhastel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #d4af37;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        nav {
+            background: rgba(40, 40, 40, 0.95);
+            padding: 1.5rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        nav button {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+            border-radius: 5px;
+        }
+
+        nav button:hover, nav button.active {
+            background: #d4af37;
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(212, 175, 55, 0.4);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s;
+            min-height: 70vh;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(40, 40, 40, 0.6);
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .intro h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .intro p {
+            font-size: 1.3rem;
+            line-height: 2;
+            margin: 1.5rem 0;
+            color: #ccc;
+        }
+
+        .intro .quote {
+            font-style: italic;
+            color: #d4af37;
+            margin-top: 3rem;
+            font-size: 1.4rem;
+            padding: 2rem;
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+        }
+
+        /* VIDEO STYLING */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .video-item {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .video-item:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(212, 175, 55, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        .video-item:hover .play-button {
+            background: rgba(240, 192, 80, 0.95);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid #000;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+
+        .video-link {
+            display: block;
+            background: #d4af37;
+            color: #000;
+            text-align: center;
+            padding: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .video-link:hover {
+            background: #f0c050;
+        }
+
+        .video-number {
+            padding: 1rem;
+            text-align: center;
+            color: #d4af37;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* POEM PAGE STYLING */
+        .poem-page {
+            background: rgba(30, 30, 30, 0.9);
+            padding: 4rem;
+            border-radius: 15px;
+            max-width: 900px;
+            margin: 2rem auto;
+            border: 2px solid #d4af37;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+        }
+
+        .poem-page h2 {
+            color: #d4af37;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-style: italic;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 1rem;
+        }
+
+        .poem-text {
+            font-size: 1.2rem;
+            line-height: 2;
+            white-space: pre-wrap;
+            color: #e0e0e0;
+            text-align: left;
+            margin: 2rem 0;
+        }
+
+        .poem-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+        }
+
+        .poem-nav-btn {
+            background: #d4af37;
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+        }
+
+        .poem-nav-btn:hover:not(:disabled) {
+            background: #f0c050;
+            transform: scale(1.05);
+        }
+
+        .poem-nav-btn:disabled {
+            background: #555;
+            color: #888;
+            cursor: not-allowed;
+        }
+
+        .poem-counter {
+            color: #d4af37;
+            font-size: 1.1rem;
+        }
+
+        .back-to-list {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .back-to-list button {
+            background: transparent;
+            color: #d4af37;
+            border: 2px solid #d4af37;
+            padding: 1rem 3rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .back-to-list button:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        /* POEM LIST STYLING */
+        .poem-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .poem-card {
+            background: rgba(40, 40, 40, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid #d4af37;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .poem-card:hover {
+            background: rgba(60, 60, 60, 0.9);
+            transform: translateX(10px);
+            border-color: #d4af37;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .poem-card-title {
+            color: #d4af37;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .poem-card-preview {
+            color: #aaa;
+            font-style: italic;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* GALLERY STYLING */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            border-color: #d4af37;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .gallery-caption {
+            padding: 1.5rem;
+            color: #d4af37;
+            font-style: italic;
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .section-header {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: #d4af37;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        /* VEKEMAN PROJECTS STYLING */
+        .vekeman-intro {
+            background: rgba(40, 40, 40, 0.6);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            text-align: center;
+        }
+
+        .vekeman-intro h2 {
+            font-size: 2.5rem;
+            color: #d4af37;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .vekeman-intro h3 {
+            font-size: 1.6rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .vekeman-intro p {
+            font-size: 1.2rem;
+            color: #ccc;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+
+        .vekeman-intro .citaat {
+            font-style: italic;
+            color: #d4af37;
+            font-size: 1.2rem;
+            padding: 2rem;
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            margin-top: 2rem;
+            border-left: 4px solid #d4af37;
+            text-align: left;
+        }
+
+        /* VEKEMAN COLUMNS GRID */
+        .columns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .column-card {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: #b8e0b8; /* pastelgroen voor linktekst */
+        }
+
+        .column-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4af37;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .column-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+
+        .column-card:hover img {
+            opacity: 0.85;
+        }
+
+        .column-card-info {
+            padding: 1.2rem 1.5rem;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .column-card-datum {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.4rem;
+            font-style: italic;
+        }
+
+        .column-card-titel {
+            font-size: 1.2rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .column-nummer {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.3rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.95);
+            text-align: center;
+            padding: 3rem;
+            margin-top: 5rem;
+            border-top: 3px solid #d4af37;
+        }
+
+        footer p:first-child {
+            color: #d4af37;
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        footer p:last-child {
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .poem-page { padding: 2rem 1.5rem; }
+            .poem-page h2 { font-size: 1.8rem; }
+            .poem-text { font-size: 1.1rem; }
+            .video-grid { grid-template-columns: 1fr; }
+            nav { padding: 1rem; }
+            nav button { padding: 0.6rem 1.2rem; font-size: 0.95rem; }
+            .columns-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gentyl</h1>
+        <p class="subtitle">Portfolio van Wim Vanhastel</p>
+    </header>
+
+    <nav>
+        <button onclick="showPage('home')" class="nav-btn active">Home</button>
+        <button onclick="showPage('videos')" class="nav-btn">Video's</button>
+        <button onclick="showPage('poems-list')" class="nav-btn">Gedichten</button>
+        <button onclick="showPage('gallery')" class="nav-btn">Galerij</button>
+        <button onclick="showPage('vekeman')" class="nav-btn">Christophe Vekeman Projects</button>
+        <button onclick="showPage('contact')" class="nav-btn">Contact</button>
+    </nav>
+
+    <div class="container">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <div class="intro">
+                <h2>Welkom in mijn Wereld</h2>
+                <p>Een reis door woorden, beelden en gedachten.</p>
+                <p>Van filosofische reflecties tot absurdistische humor,<br>
+                van conceptuele kunst tot existentiële poëzie.</p>
+                <p class="quote">
+                    "De kunst is om het leven niet serieus te nemen<br>
+                    terwijl je het leven niet serieus neemt!"
+                </p>
+            </div>
+        </div>
+
+        <!-- VIDEOS PAGE -->
+        <div id="videos" class="page">
+            <div class="section-header">
+                <h2>Video's</h2>
+                <p>Klik op play om te bekijken</p>
+            </div>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f39c12, #e67e22); display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 2rem; cursor: pointer; position: relative;" onclick="window.open('https://www.youtube.com/watch?v=75jLo8nzQmc', '_blank')">
+                            <div>
+                                <div style="font-size: 3rem; font-weight: bold; text-shadow: 3px 3px 6px rgba(0,0,0,0.7);">FRIETKOT<br>LIED</div>
+                                <div style="font-size: 1rem; margin-top: 1rem;">HET LEKKERSTE FRIETKOTLIED EVER!</div>
+                                <div style="position: absolute; top: 10px; left: 10px; font-size: 2rem;">🍟</div>
+                                <div style="position: absolute; bottom: 10px; right: 10px;">GENTYL</div>
+                            </div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 1 - Frietkot Lied</div>
+                    <a href="https://www.youtube.com/watch?v=75jLo8nzQmc" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; text-align: center; padding: 2rem; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=iRAwDJQmO_E', '_blank')">
+                            <div><strong>Baroness Pierard</strong><br>en het gouden juwelenkistje</div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 2 - Baroness Pierard</div>
+                    <a href="https://www.youtube.com/watch?v=iRAwDJQmO_E" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=kOVqERV6lg4', '_blank')">
+                            <div style="color: white; font-size: 2rem; text-align: center;">
+                                <div style="font-size: 3rem;">▶️</div>
+                                <p>Christophe Vekeman als C.V.-Man</p>
+                            </div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 3 - C.V.-Man</div>
+                    <a href="https://www.youtube.com/watch?v=kOVqERV6lg4" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(to bottom, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=qjmWL-1yFmM', '_blank')">
+                            <div style="text-align: center;">
+                                <div style="font-size: 4rem; color: #ff69b4; font-weight: bold; text-shadow: 0 0 20px #ff69b4;">SEX</div>
+                                <div style="font-size: 1.5rem; color: #4dd0e1; font-style: italic; margin-top: 1rem;">GENTYL</div>
+                            </div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 4 - SEX</div>
+                    <a href="https://www.youtube.com/watch?v=qjmWL-1yFmM" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=ND_F44_SbhQ', '_blank')">
+                            <div style="color: white; font-size: 2rem; text-align: center;">
+                                <div style="font-size: 3rem;">▶️</div>
+                                <p>Egotripper</p>
+                            </div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 5 - Egotripper</div>
+                    <a href="https://www.youtube.com/watch?v=ND_F44_SbhQ" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 2rem; cursor: pointer; position: relative; overflow: hidden;" onclick="window.open('https://www.youtube.com/watch?v=2f9-Jrpav5o', '_blank')">
+                            <div style="font-size: 2.5rem; font-weight: bold;">
+                                <span style="color: #4da6ff;">Hallo</span> <span style="color: #ff69b4;">Bling-bling</span><br>
+                                <span style="color: #4da6ff;">Cha-ching!</span> <span style="color: #ff69b4;">Cha-ching!</span>
+                            </div>
+                            <div style="position: absolute; bottom: 10px; right: 10px; font-size: 3rem;">👍💰</div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 6 - Bling-bling</div>
+                    <a href="https://www.youtube.com/watch?v=2f9-Jrpav5o" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=gMu4ytAaQSI', '_blank')">
+                            <div style="font-size: 3rem; font-weight: bold; text-align: center;">
+                                <span style="color: #00ff00;">Marry</span><span style="color: #ff0000;">You</span><span style="color: #ffff00;">Anna</span>
+                            </div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 7 - MarryYouAnna</div>
+                    <a href="https://www.youtube.com/watch?v=gMu4ytAaQSI" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff6b9d, #feca57); display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 2rem; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=J560KlokBHU', '_blank')">
+                            <div>
+                                <div style="font-size: 2.5rem; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">LEKKER<br>VERWENNEN</div>
+                                <div style="font-size: 1.2rem; margin-top: 1rem;">🛁 Ontspanning & Luxe 🥂</div>
+                            </div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 8 - Lekker Verwennen</div>
+                    <a href="https://www.youtube.com/watch?v=J560KlokBHU" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+                <div class="video-item">
+                    <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
+                        <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=pkGnb-o70XY', '_blank')">
+                            <div style="color: white; font-size: 2rem; text-align: center;">
+                                <div style="font-size: 3rem;">▶️</div>
+                                <p>Donald van Rossem kloon by Gentyl</p>
+                            </div>
+                        </div>
+                        <div class="play-button"></div>
+                    </div>
+                    <div class="video-number">Video 9 - Donald van Rossem kloon</div>
+                    <a href="https://www.youtube.com/watch?v=pkGnb-o70XY" target="_blank" class="video-link">Bekijk op YouTube →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- POEMS LIST PAGE -->
+        <div id="poems-list" class="page">
+            <div class="section-header">
+                <h2>Gedichten & Teksten</h2>
+                <p>Klik op een gedicht om het volledig te lezen</p>
+            </div>
+            <div class="poem-list" id="poemList"></div>
+        </div>
+
+        <!-- POEM DETAIL PAGES -->
+        <div id="poem-detail" class="page">
+            <div class="back-to-list">
+                <button onclick="showPage('poems-list')">← Terug naar overzicht</button>
+            </div>
+            <div class="poem-page">
+                <h2 id="poemTitle"></h2>
+                <div class="poem-text" id="poemText"></div>
+                <div class="poem-navigation">
+                    <button class="poem-nav-btn" onclick="previousPoem()" id="prevBtn">← Vorige</button>
+                    <span class="poem-counter" id="poemCounter"></span>
+                    <button class="poem-nav-btn" onclick="nextPoem()" id="nextBtn">Volgende →</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHRISTOPHE VEKEMAN PROJECTS PAGE -->
+        <div id="vekeman" class="page">
+            <div class="vekeman-intro">
+                <h2>Christophe Vekeman Projects</h2>
+                <h3>Creaties geïnspireerd door Christophe Vekeman</h3>
+                <p>✍️ Vekeman Columns in beeld door Gentyl</p>
+                <p>Christophe Vekeman's columns in De Standaard Weekblad waren voor mij wekelijks een uitnodiging tot creëren. Een jaar lang vertaalde ik zijn woorden naar beelden - prenten (visueeltjes zoals ik ze zelf noem).</p>
+                <div class="citaat">
+                    "Al vele weken achtereen mag ik het tot mijn grote vreugde meemaken dat mijn column in De Standaard Weekblad Wim Vanhastel tot inspiratie strekt voor een collage."<br><br>
+                    <strong>- Christophe Vekeman</strong>
+                </div>
+            </div>
+
+            <!-- Columns grid op chronologische volgorde -->
+            <div class="columns-grid">
+
+                <!-- 1. Billy - 27 maart 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/billy_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/billy.jpg" alt="Billy" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 27 maart 2021</div>
+                        <div class="column-card-titel">Billy</div>
+                        <div class="column-nummer">Column 1</div>
+                    </div>
+                </a>
+
+                <!-- 2. Literaire apartheid - 3 april 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/literaire_apartheid_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/literaire_apartheid.jpg" alt="Literaire apartheid" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 3 april 2021</div>
+                        <div class="column-card-titel">Literaire apartheid</div>
+                        <div class="column-nummer">Column 2</div>
+                    </div>
+                </a>
+
+                <!-- 3. Eeuwige jeugd - 10 april 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/eeuwige_jeugd_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/eeuwige_jeugd.jpg" alt="Eeuwige jeugd" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 10 april 2021</div>
+                        <div class="column-card-titel">Eeuwige jeugd</div>
+                        <div class="column-nummer">Column 3</div>
+                    </div>
+                </a>
+
+                <!-- 4. Schudden met die billen - 17 april 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/schudden_met_die_billen_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/schudden_met_die_billen.jpg" alt="Schudden met die billen" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 17 april 2021</div>
+                        <div class="column-card-titel">Schudden met die billen</div>
+                        <div class="column-nummer">Column 4</div>
+                    </div>
+                </a>
+
+                <!-- 5. Aandacht voor dekolonisering - 24 april 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/aandacht_voor_dekolonisering_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/aandacht_voor_dekolonisering.jpg" alt="Aandacht voor dekolonisering" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 24 april 2021</div>
+                        <div class="column-card-titel">Aandacht voor dekolonisering</div>
+                        <div class="column-nummer">Column 5</div>
+                    </div>
+                </a>
+
+                <!-- 6. Schoorvoetend richting dansvloer - 30 april 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/schoorvoetend_richting_dansvloer_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/schoorvoetend_richting_dansvloer.jpg" alt="Schoorvoetend richting dansvloer" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">vrijdag 30 april 2021</div>
+                        <div class="column-card-titel">Schoorvoetend richting dansvloer</div>
+                        <div class="column-nummer">Column 6</div>
+                    </div>
+                </a>
+
+                <!-- 7. Oerwoudgeluiden - 8 mei 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/oerwoudgeluiden_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/oerwoudgeluiden.jpg" alt="Oerwoudgeluiden" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 8 mei 2021</div>
+                        <div class="column-card-titel">Oerwoudgeluiden</div>
+                        <div class="column-nummer">Column 7</div>
+                    </div>
+                </a>
+
+                <!-- 8. Rook der vrijheid - 15 mei 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/rook_der_vrijheid_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/rook_der_vrijheid.jpg" alt="Rook der vrijheid" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 15 mei 2021</div>
+                        <div class="column-card-titel">Rook der vrijheid</div>
+                        <div class="column-nummer">Column 8</div>
+                    </div>
+                </a>
+
+                <!-- 9. Volmaakt ontwaakt - 22 mei 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/volmaakt_ontwaakt_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/volmaakt_ontwaakt.jpg" alt="Volmaakt ontwaakt" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 22 mei 2021</div>
+                        <div class="column-card-titel">Volmaakt ontwaakt</div>
+                        <div class="column-nummer">Column 9</div>
+                    </div>
+                </a>
+
+                <!-- 10. Bob en Geike - 29 mei 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/bob_en_geike_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/bob_en_geike.jpg" alt="Bob en Geike" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 29 mei 2021</div>
+                        <div class="column-card-titel">Bob en Geike</div>
+                        <div class="column-nummer">Column 10</div>
+                    </div>
+                </a>
+
+                <!-- 11. Als Jürgen Halil heette - 5 juni 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/als_jurgen_halil_heette_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/als_jurgen_halil_heette.jpg" alt="Als Jürgen Halil heette" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 5 juni 2021</div>
+                        <div class="column-card-titel">Als Jürgen Halil heette</div>
+                        <div class="column-nummer">Column 11</div>
+                    </div>
+                </a>
+
+                <!-- 12. Boekverbranding - 12 juni 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/boekverbranding_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/boekverbranding.jpg" alt="Boekverbranding" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 12 juni 2021</div>
+                        <div class="column-card-titel">Boekverbranding</div>
+                        <div class="column-nummer">Column 12</div>
+                    </div>
+                </a>
+
+                <!-- 13. Het vaccinatieparadijs - 19 juni 2021 -->
+                <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/het_vaccinatieparadijs_vekeman.html" target="_blank" class="column-card">
+                    <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/het_vaccinatieparadijs.jpg" alt="Het vaccinatieparadijs" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
+                    <div class="column-card-info">
+                        <div class="column-card-datum">zaterdag 19 juni 2021</div>
+                        <div class="column-card-titel">Het vaccinatieparadijs</div>
+                        <div class="column-nummer">Column 13</div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <div class="section-header">
+                <h2>Contact</h2>
+                <p>Laat een bericht achter</p>
+            </div>
+            <div style="max-width: 600px; margin: 3rem auto; padding: 2rem; background: rgba(40,40,40,0.8); border-radius: 15px; border: 2px solid #d4af37;">
+                <form action="https://formspree.io/f/mreennoz" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <label style="color: #d4af37; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Naam</label>
+                        <input type="text" name="name" required style="width: 100%; padding: 0.8rem; font-size: 1rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white;">
+                    </div>
+                    <div>
+                        <label style="color: #d4af37; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Email</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 0.8rem; font-size: 1rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white;">
+                    </div>
+                    <div>
+                        <label style="color: #d4af37; font-size: 1.1rem; display: block; margin-bottom: 0.5rem;">Bericht</label>
+                        <textarea name="message" required rows="6" style="width: 100%; padding: 0.8rem; font-size: 1rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background: #d4af37; color: #000; border: none; padding: 1rem 2rem; font-size: 1.1rem; border-radius: 5px; cursor: pointer; font-weight: bold; transition: all 0.3s;">
+                        Versturen
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- GALLERY PAGE -->
+        <div id="gallery" class="page">
+            <div class="section-header">
+                <h2>Visuele Kunst</h2>
+                <p>Een selectie van visuele creaties</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="window.open('images/IMG_3988.JPG', '_blank')" style="cursor: pointer;">
+                    <img src="images/IMG_3988.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Enjoy the ride</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Gentyl foto cirkel zwart met naam.png', '_blank')" style="cursor: pointer;">
+                    <img src="images/Gentyl foto cirkel zwart met naam.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">ZELF PORTRET</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/IMG_7259.JPG', '_blank')" style="cursor: pointer;">
+                    <img src="images/IMG_7259.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">bomenbos</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Kom-Mok.png', '_blank')" style="cursor: pointer;">
+                    <img src="images/Kom-Mok.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">KOM/MOK-Spiegelgedicht</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Mens zijn lastig.JPG', '_blank')" style="cursor: pointer;">
+                    <img src="images/Mens zijn lastig.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Waarom is mens zijn zo lastig?</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Ceci n\'est pas un dauphin.JPG', '_blank')" style="cursor: pointer;">
+                    <img src="images/Ceci n'est pas un dauphin.JPG" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Ceci n'est pas un dauphin</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Vanaf morgen....png', '_blank')" style="cursor: pointer;">
+                    <div class="gallery-image" style="background: linear-gradient(to bottom, #ff6600, #ff9933); color: #660000; flex-direction: column; display: flex; align-items: center; justify-content: center;">
+                        <p style="font-size: 1.6rem; font-weight: bold;">Vanaf morgen<br>stel ik alles uit!</p>
+                        <div style="font-size: 4rem; margin-top: 1rem;">⏳</div>
+                    </div>
+                    <div class="gallery-caption">Uitstelgedrag</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Aardkloot.png', '_blank')" style="cursor: pointer;">
+                    <div class="gallery-image" style="background: linear-gradient(to right, #cc0000, #ffcc00, #00cc00); color: white; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                        <p style="font-size: 1.4rem; text-shadow: 2px 2px 4px black;">Moeder Aarde<br>in transitie naar<br>Aardkloot</p>
+                    </div>
+                    <div class="gallery-caption">Moeder Aarde</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/USA SLOGAN.png', '_blank')" style="cursor: pointer;">
+                    <div style="width: 100%; height: 300px; background: black; display: flex; align-items: center; justify-content: center; border-radius: 15px 15px 0 0;">
+                        <img src="images/USA SLOGAN.png" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="gallery-caption">Second Amendment</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Tunnelvisie.jpg', '_blank')" style="cursor: pointer;">
+                    <div class="gallery-image" style="background: linear-gradient(to right, #ff0000, #ff6600, #ffcc00); color: black; display: flex; align-items: center; justify-content: center;">
+                        <div>
+                            <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Tunnelvisie</p>
+                            <p style="font-size: 1rem;">Ik heb een gedicht geschreven<br>wat iedereen moet gelezen hebben...<br><br>De tunnel was open maar gesloten...<br><br>pizza? 🍕</p>
+                        </div>
+                    </div>
+                    <div class="gallery-caption">Tunnelvisie</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman Wordt het kind... .png', '_blank')" style="cursor: pointer;">
+                    <img src="images/Wimpie Wijsman Wordt het kind... .png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman Wat uw ene oog ziet.png', '_blank')" style="cursor: pointer;">
+                    <img src="images/Wimpie Wijsman Wat uw ene oog ziet.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman lippenzalf.png', '_blank')" style="cursor: pointer;">
+                    <img src="images/Wimpie Wijsman lippenzalf.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Wimpie Wijsman - Humor</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie Wijsman Wordt het kind...EN.png', '_blank')" style="cursor: pointer;">
+                    <img src="images/Wimpie Wijsman Wordt het kind...EN.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Wimpie Wiseman (EN) - Humor</div>
+                </div>
+                <div class="gallery-item" onclick="window.open('images/Wimpie Wiseman lip ointment.png', '_blank')" style="cursor: pointer;">
+                    <img src="images/Wimpie Wiseman lip ointment.png" style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px 15px 0 0;">
+                    <div class="gallery-caption">Wimpie Wiseman (EN) - Humor</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="max-width: 500px; margin: 0 auto 2rem;">
+            <h3 style="color: #d4af37; margin-bottom: 1rem;">Snel Contact</h3>
+            <form action="https://formspree.io/f/mreennoz" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="text" name="name" placeholder="Naam" required style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; font-size: 0.95rem;">
+                <input type="email" name="email" placeholder="Email" required style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; font-size: 0.95rem;">
+                <textarea name="message" placeholder="Bericht" required rows="3" style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; resize: vertical; font-size: 0.95rem;"></textarea>
+                <button type="submit" style="background: #d4af37; color: #000; border: none; padding: 0.8rem; font-size: 1rem; border-radius: 5px; cursor: pointer; font-weight: bold;">Versturen</button>
+            </form>
+        </div>
+        <p style="margin-top: 2rem;">Gentyl (Wim Vanhastel)</p>
+        <p>© 2025 - Alle rechten voorbehouden</p>
+    </footer>
+
+    <script>
+        // Gedichten array
+        const poems = [
+            {
+                title: "Besef twee punt nul. (10/02/2023)",
+                preview: "En toen stond stil die zekerheid...",
+                text: `En toen stond stil die zekerheid, deze was nochtans zo goed op dreef.
+
+Gentyl (Wim Vanhastel)`
+            },
+            {
+                title: "En waan u. (02/07/2021)",
+                preview: "Nu de oogleden zachtjes dalen...",
+                text: `Nu de oogleden zachtjes dalen,
+om in het donkere duister te verdwalen,
+absorbeer je geur en tonen,
+tijd om tot rust te komen.
+
+Geef je over, laat je gaan,
+wees bewust van uw bestaan,
+van moment in hier en nu,
+en waan u,...waan u.
+
+Gentyl (Wim Vanhastel)`
+            },
+            {
+                title: "Waarom is mens zijn zo lastig? (12/06/2022)",
+                preview: "Kijk je terug dan zie je een pamper...",
+                text: `Kijk je terug dan zie je een pamper.
+Kijk je vooruit dan zie je een pamper.
+Kijk je naar nu dan heb je amper,
+tijd om te leven door al dat werk.
+Dus eigenlijk is het leven van de foef naar de zerk.
+
+Gentyl (Wim Vanhastel)`
+            },
+            {
+                title: "Wanneer het schrijven mij nauwer ligt",
+                preview: "Tekst, teksten, zinnen, inhoud...",
+                text: `Wanneer het schrijven mij nauwer ligt dan het hard fietsende kromgebogen lied tegen die die wint! ;-)
+
+Tekst, teksten, zinnen, inhoud, woorden gedachten, letters en tekens, gevoel, meningen, spreuk of uitspraak, symbolische spaties tussen schrijf en lees fauten.
+
+Genres en soorten in boeken en bladen, in kranten en essays over grammaticale dwalingen van schrijvers via brieven van lezers. Alfa Latino, bèta of Vlaams blokkers met soorten van hoofd en zesentwintig waarvan er mede of klinken. Van vocaal naar audio en regionaal, naar vertaal, beluisterd en verbaal gefluisterd.
+
+Met dit gedicht ver en onduidelijk verklaar ik u geletterde prikkel, jij ingewikkelde taal barrière besmet met globale van elders komende invloed. Kortom lang uitgelegd met letter en woord de zin gevlochten tot dicht of bijsluiter maar vooral bestemd om na het lezen van dit gesprek in mijn hoofd te weten, er mag niks meer verloren gaan, aldus de geschifte geschrifte!
+
+Gentyl`
+            },
+            {
+                title: "Breindenker (02/07/2021)",
+                preview: "Niemand zit te wachten op het onvoltooide brein...",
+                text: `Niemand zit te wachten op het onvoltooide brein, welk met moeite en overtuigingskracht toch te veel moeilijke woorden zal nodig hebben om het uit gelegd te krijgen.
+
+Gentyl (Wim Vanhastel)`
+            },
+            {
+                title: "Muizenvoer",
+                preview: "Een rat die grote muis...",
+                text: `Een rat die grote muis,
+je weet wel van tussen je huis,
+die 's nachts zo krabt en doet
+in uw riool en daar ook broedt.
+
+Die rat zo'n grote muis
+heeft wel een grotere muil,
+zo kan die naar believen
+zich wentelen in uw vuil.
+
+Die rat van in uwen kelder,
+die grote muis onder uw keet
+die dacht even niet helder
+en kwam vast in een muizenspleet.
+
+Nu zat ze daar en ging ze dood,
+in die spleet net onder uw vloer,
+wat voor die kleine muis de kans bood
+de rat op te eten als muizenvoer.
+
+Gentyl`
+            },
+            {
+                title: "Nietig (02/07/2021)",
+                preview: "We zijn zo complex en toch zo nietig...",
+                text: `We zijn zo complex en toch zo nietig,
+dat maakt me dan ook o zo verdrietig.
+
+Zal ik mezelf ooit kunnen uitpluizen,
+rustig houden en bedaren?
+Tussen al hun regels en wetten,
+die mijn expressie beletten.
+
+Het moeten,
+het varen,
+het staren en kinderen baren,
+het spel verplicht te spelen,
+met iedereen,
+met zo velen,
+door liefde te beminnen,
+doch nooit te kunnen winnen.
+
+Gentyl (Wim Vanhastel)`
+            },
+            {
+                title: "Broodnodig zuur",
+                preview: "De broodjes gingen als warme broodjes...",
+                text: `De broodjes gingen als warme broodjes over de toonbank.
+De broodjes waren niet warm,
+toch gingen ze als warme broodjes over de toonbank.
+
+Die broodjes die als warme broodjes over de toonbank gingen waren koud.
+Ze hadden zevenendertig jaar in de diepvries gelegen.
+En toch gingen ze als warme broodjes over de toonbank.
+
+Ze waren zuur,
+die broodjes die als warme broodjes over de toonbank gingen.
+Daardoor vlogen,
+die broodjes die als warme broodjes over de toonbank gingen,
+niet als zoete broodjes de deur uit,
+maar gingen ze wel als warme broodjes die toonbank over.
+
+Maar zuur, zuur dat ze waren!
+Waw, het is warm vandaag.
+
+by Gentyl`
+            },
+            {
+                title: "Echt?",
+                preview: "Vroeger was. Nu,...was...",
+                text: `Vroeger was.
+Nu,...was.
+Maar nu is nog maar net geweest, of het is al toen,
+wat op zijn beurt weer vroeger is.
+Dus vroeger is nu wat toen is geweest!
+
+Gentyl`
+            },
+            {
+                title: "Eigen weg wijs",
+                preview: "Ik, ik heb alles zelf aangeleerd...",
+                text: `Ik, ik heb alles zelf aangeleerd, zei de autodidact.
+Bij mij was het van moeten, zei de ervaringsdeskundige.
+Ik ga af op het gevoel, zei de homeopaat.
+Bij mij was't op den tast zei de slechtziende.
+Bij mij ook zei de rokkenjager.
+
+Ik ga af, echt af en alleen op "mijn" gevoel, zei de psychopaat. Waarom vertel ik u dit eigenlijk?
+
+Ik, ik volg het pad wat door Engelen des Heren is uitgestippeld, zei de gelovige.
+
+Ik tippel langs het pad die mijn pooier via google maps heeft uit gezocht waar het volgens hem het meest opbrengt.
+
+Wablief? zei de slechthorende.
+
+Gentyl`
+            },
+            {
+                title: "Isa is",
+                preview: "Ik leef op de rug van een schrijver...",
+                text: `Ik leef op de rug van een schrijver, ik schrijf op de rug van zijn blad.
+Ik lees mijn gezicht in zijn vijver, niet wetend of ik dit wel mag.
+
+Zo stout of verkeerd en toch echt een fan,
+geef ik zomaar toe gedichten ik kan.
+Daar niks zeker is, van woord los gerukt,
+kan ik enkel schrijven: "Isa is mijn geluk!"
+
+Gentyl`
+            },
+            {
+                title: "Leunen op de leugen (12/06/2023)",
+                preview: "Leunend op de leugens, voorbode van verheugendst...",
+                text: `Leunend op de leugens,
+voorbode van verheugendst,
+in roes van tijd,
+in roes van drang,
+gevolgd door spijt en eigenbelang.
+
+Knielend aan de zielen,
+voorbode van vernielen,
+op zoek naar zin,
+in toen en heden,
+maar weeral niettemin ook zonder reden.
+
+Hangend aan de vragen,
+voorbode van verdragen,
+immens onwetend,
+teleurgesteld,
+existerend opvretend en vast gekneld.
+
+Schreeuwend door de eeuwen,
+voorbode van verderf,
+net door die onmacht,
+en door die woede,
+naar die mij baarde en die mij broedde.
+
+Gentyl (Wim Vanhastel)`
+            },
+            {
+                title: "Mijn duifke mijn alles",
+                preview: "Ze kent mij zo goed...",
+                text: `Ze kent mij zo goed
+Ze is mij soms voor
+Als een vlieg voor mijn neus
+Als een worm in mijn oor
+
+Haar kennis en inzicht
+wat zij heeft over mij
+die reflectie of spiegel
+Laat me zien, maakt me vrij.
+
+Gentyl`
+            },
+            {
+                title: "Niet of, maar wanneer? (01/09/2021)",
+                preview: "Als kind te hebben geleefd, zo onwetend en zo vrij...",
+                text: `Als kind te hebben geleefd, zo onwetend en zo vrij.
+In onschuld, in vergetelheid, zo zorgeloos en zo blij.
+Net dan komen ze me zeggen en dat het hen ook spijt,
+We moeten u toch zeggen:"Je hebt maar een beperkte tijd"!
+
+Dus dat er een eind aan komt was een klap in mijn gezicht.
+Ik was jong en werd volwassen, op weg naar roem en licht.
+
+Was dat een klap in mijn gezicht!
+Natuurlijk raakte ik ontwricht.
+Sinds sleurde ik 'hun' zwaar gewicht,
+doorheen mijn doen en laten.
+
+Maar blijf vooral fit en gezond.
+Zo lang en 't liefst boven de grond.
+Doch kunnen wij u helaas niet zeggen,
+wanneer u juist uw koppeke zult leggen.
+
+Niet klagen, niets vragen, niet neuten of zagen.
+Sta op tijd op en zoekt u een job.
+Net lijk de reste, met niet te veel geste!
+Doe maar gewoon en zonder vertoon.
+
+Maar nu eerst aan het werk,
+sta je straks hopelijk sterk,
+om een wederhelft te zoeken,
+en het moederhuis te bezoeken.
+
+Dus ja, veel werken en heel veel sparen,
+veel geld en mooi gerief vergaren,
+veel werken, geld scheppen en blijven zwoegen,
+het liefste volcontinue of minstens in drie ploegen.
+
+Eigenlijk een beetje zoals de rest
+Maar doe vooral uw best
+want ander kan het rap gaan
+dat je op straat zal staan
+
+Proberen hogerop te komen
+Veel werken aan uw dromen
+verantwoordelijkheid en gezag
+al betaal jij het gelag
+
+Gentyl (Wim Vanhastel)`
+            },
+            {
+                title: "Om de hoek",
+                preview: "Wat schuilt om een hoek...",
+                text: `Wat schuilt om een hoek, is pas zichtbaar als je kijkt.
+
+Gentyl`
+            },
+            {
+                title: "Omgaan",
+                preview: "Om gaan met het om gaan met!",
+                text: `Om gaan met het om gaan met!
+
+Gentyl`
+            },
+            {
+                title: "Seconden tikken weg in...",
+                preview: "Het leven, de wachtzaal van de dood.",
+                text: `Het leven, de wachtzaal van de dood.
+
+Gentyl`
+            },
+            {
+                title: "Zijn doel vooruit",
+                preview: "Vooruit gaan is belangrijk...",
+                text: `Vooruit gaan is belangrijk, maar wat is het doel?
+Sta daar maar eens bij stil.
+
+Gentyl`
+            },
+            {
+                title: "Gentyl - Echt? Echt.",
+                preview: "De kunst is om het leven niet serieus te nemen...",
+                text: `De kunst is om het leven niet serieus te nemen terwijl je het leven niet serieus neemt!
+
+Gentyl`
+            },
+            {
+                title: "Beschaamd",
+                preview: "Zijde gij niet beschaamd?",
+                text: `Zijde gij niet beschaamd?
+Ge zou moeten beschaamd zijn!
+Ik zou beschaamd zijn in uw plaats,...
+
+Gentyl`
+            }
+        ];
+
+        let currentPoemIndex = 0;
+
+        // Toon een pagina en verberg de rest
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Maak de gedichtenlijst aan
+        function createPoemList() {
+            const listContainer = document.getElementById('poemList');
+            poems.forEach((poem, index) => {
+                const card = document.createElement('div');
+                card.className = 'poem-card';
+                card.onclick = () => showPoem(index);
+                card.innerHTML = `
+                    <div class="poem-card-title">${poem.title}</div>
+                    <div class="poem-card-preview">${poem.preview}</div>
+                `;
+                listContainer.appendChild(card);
+            });
+        }
+
+        // Toon een individueel gedicht
+        function showPoem(index) {
+            currentPoemIndex = index;
+            const poem = poems[index];
+            
+            document.getElementById('poemTitle').textContent = poem.title;
+            document.getElementById('poemText').textContent = poem.text;
+            document.getElementById('poemCounter').textContent = `${index + 1} / ${poems.length}`;
+            
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('nextBtn').disabled = index === poems.length - 1;
+            
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('poem-detail').classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Navigatie tussen gedichten
+        function previousPoem() {
+            if (currentPoemIndex > 0) {
+                showPoem(currentPoemIndex - 1);
+            }
+        }
+
+        function nextPoem() {
+            if (currentPoemIndex < poems.length - 1) {
+                showPoem(currentPoemIndex + 1);
+            }
+        }
+
+        // Initialiseer de gedichtenlijst bij laden
+        createPoemList();
+    </script>
+</body>
+</html>
