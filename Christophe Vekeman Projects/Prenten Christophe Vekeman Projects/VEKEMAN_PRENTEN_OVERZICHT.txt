@@ -1,0 +1,99 @@
+# VEKEMAN PRENTEN - OVERZICHT
+## Alle 13 columns met bijbehorende prenten
+
+### KLAAR VOOR GEBRUIK OP WEBSITE! ✅
+
+---
+
+## 📋 VOLLEDIGE LIJST
+
+| # | Column | Datum | Prent Bestand | Grootte |
+|---|--------|-------|---------------|---------|
+| 1 | Billy | 27 maart 2021 | billy.jpg | 355 KB |
+| 2 | Literaire apartheid | 3 april 2021 | literaire_apartheid.jpg | 216 KB |
+| 3 | Eeuwige jeugd | 10 april 2021 | eeuwige_jeugd.jpg | 388 KB |
+| 4 | Schudden met die billen | 17 april 2021 | schudden_met_die_billen.jpg | 219 KB |
+| 5 | Aandacht voor dekolonisering | 24 april 2021 | aandacht_voor_dekolonisering.jpg | 419 KB |
+| 6 | Schoorvoetend richting dansvloer | 30 april 2021 | schoorvoetend_richting_dansvloer.jpg | 359 KB |
+| 7 | Oerwoudgeluiden | 8 mei 2021 | oerwoudgeluiden.jpg | 288 KB |
+| 8 | Rook der vrijheid | 15 mei 2021 | rook_der_vrijheid.jpg | 424 KB |
+| 9 | Volmaakt ontwaakt | 22 mei 2021 | volmaakt_ontwaakt.jpg | 449 KB |
+| 10 | Bob en Geike | 29 mei 2021 | bob_en_geike.jpg | 346 KB |
+| 10b | Bob en Geike (origineel) | 29 mei 2021 | desolation_row.png | 1.6 MB |
+| 11 | Als Jürgen Halil heette | 5 juni 2021 | als_jurgen_halil_heette.jpg | 557 KB |
+| 12 | Boekverbranding | 12 juni 2021 | boekverbranding.jpg | 224 KB |
+| 13 | Het vaccinatieparadijs | 19 juni 2021 | het_vaccinatieparadijs.jpg | 246 KB |
+
+---
+
+## 📁 MAPPENSTRUCTUUR VOOR WEBSITE
+
+```
+Mijn website/
+├── images/
+│   └── (je huidige afbeeldingen)
+├── Vekeman Projects/
+│   ├── prenten/
+│   │   ├── billy.jpg
+│   │   ├── literaire_apartheid.jpg
+│   │   ├── eeuwige_jeugd.jpg
+│   │   ├── schudden_met_die_billen.jpg
+│   │   ├── aandacht_voor_dekolonisering.jpg
+│   │   ├── schoorvoetend_richting_dansvloer.jpg
+│   │   ├── oerwoudgeluiden.jpg
+│   │   ├── rook_der_vrijheid.jpg
+│   │   ├── volmaakt_ontwaakt.jpg
+│   │   ├── bob_en_geike.jpg
+│   │   ├── desolation_row.png
+│   │   ├── als_jurgen_halil_heette.jpg
+│   │   ├── boekverbranding.jpg
+│   │   └── het_vaccinatieparadijs.jpg
+│   ├── billy.html
+│   ├── literaire_apartheid.html
+│   ├── (etc... alle 13 HTML bestanden)
+│   └── index.html (overzichtspagina)
+└── index.html
+```
+
+---
+
+## ✅ WAT IS GEDAAN:
+
+1. ✅ Alle PDF prenten geconverteerd naar JPEG
+2. ✅ Bestaande JPEG/PNG bestanden gekopieerd
+3. ✅ Alle bestanden consistent benoemd (lowercase, underscore)
+4. ✅ Grote bestanden verkleind (3.95MB → 557KB bijvoorbeeld!)
+5. ✅ Geoptimaliseerd voor web gebruik (quality 85)
+6. ✅ Totale grootte: ~5.5 MB voor alle 14 bestanden
+
+---
+
+## 🎨 BIJZONDERHEDEN:
+
+### Bob en Geike - 2 prenten:
+- **bob_en_geike.jpg** - Jouw versie met Eurovision/Dyslexia Road
+- **desolation_row.png** - Originele Bob Dylan "Desolation Row" albumhoes
+  
+Je kunt beide gebruiken of een combinatie maken!
+
+---
+
+## 📝 VOLGENDE STAPPEN:
+
+1. Download alle prenten
+2. Zet ze in map: `Mijn website/Vekeman Projects/prenten/`
+3. Upload naar GitHub
+4. Pas HTML bestanden aan om prenten te tonen
+5. Maak overzichtspagina met thumbnails
+
+---
+
+## 🚀 KLAAR VOOR GEBRUIK!
+
+Alle bestanden zijn web-ready:
+- Juiste formaat (JPEG/PNG)
+- Goede compressie (200-600 KB per bestand)
+- Consistente naamgeving
+- Geoptimaliseerd voor snelle laadtijd
+
+**Totaal:** 14 prenten, ~5.5 MB

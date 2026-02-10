@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aandacht voor dekolonisering - Christophe Vekeman</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .article-container {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .article-header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .section-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0 20px 0;
+            line-height: 1.2;
+        }
+        
+        .author-info {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .author-bio {
+            font-style: italic;
+            color: #666;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .publication-date {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        
+        .article-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .article-image {
+                margin: 20px 0;
+            }
+        }
+
+        
+        /* Lightbox styling */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            cursor: pointer;
+            animation: fadeIn 0.3s;
+        }
+        
+        .lightbox-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .lightbox-close:hover {
+            color: #d4af37;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .article-image {
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        
+        .article-image:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <div class="section-label">DE WERELD VOLGENS</div>
+            <h1>Aandacht voor dekolonisering</h1>
+            <div class="author-info">
+                <strong>Christophe Vekeman</strong><br>
+                zaterdag 24 april 2021 om 3.25 uur
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="../Prenten Christophe Vekeman Projects/aandacht_voor_dekolonisering.jpg" alt="Artwork" class="article-image" onclick="openLightbox(this.src)" title="Klik om te vergroten">
+        </div>
+        
+        <div class="article-content">
+            <p>In het kader van de decoronisering, nee wacht, sorry. In het kader van de dekolonisering van het onderwijs is er in Engeland van alles aan de hand. Ik lees het in de Volkskrant, en opdat u niet zou denken dat ik een en ander overdrijf of zelfs gewetenloos uit mijn dikke duim zou zitten zuigen, citeer ik: 'Studenten aan Hull University worden niet langer gecorrigeerd wanneer ze verkeerd spellen, grammaticale fouten maken of interpunctie verkeerd gebruiken.' Waarom niet, hoezo? Wel, dat besluit maakt deel uit, kennelijk, van een nagelnieuw diversiteitsbeleid, dat dus 'het curriculum' wil decolumniseren, nee wacht, sorry, dekoloniseren. 'Goed taalgebruik, stelt de universiteit, kan worden gezien als "homogeen, Noord-Europees, wit, mannelijk en elitair".' Jawadde. Sommige mensen laten écht geen kans voorbijgaan om vrouwen in het algemeen en professionele schrijfsters in het bijzonder tot op het bot te schofferen.</p>
+
+            <p>Maar goed, het lijkt hier in de eerste plaats dus, door de term 'decongolisering', nee wacht, sorry, de term 'dekolonisering', maar ook door de adjectieven 'Noord-Europees' en 'wit' over huidskleur te gaan, en in mindere mate over geslacht. De vunzige suggestie bestaat er in dit geval in, met andere woorden, dat niet-witte universiteitsstudenten minder goed in staat zouden zijn zich schriftelijk zonder fouten uit te drukken dan hun veel blekere collega's.</p>
+
+            <p>Het – naar ik aanneem – goedbedoelde gelijkekansenidee in kwestie dook in een andere vorm en context natuurlijk al veel eerder op, en was er meer bepaald de reden van dat progressieve én flamingantische taalgebruikers het in de 20ste eeuw 'konsekwent' over pak 'm beet 'kommunisme' hadden en niet over 'communisme'. Remco Campert ('Remko Kampurt') trok dat in 1961 door tot in het absurdhumoristische met zijn prachtroman Het leven is vurrukkulluk, en in 2007 nog verscheen van Tjitske Jansen een dichtbundel die, over het curriculum gesproken, Koerikoeloem heet.</p>
+
+            <p>Heel leuk, maar minder geestig wordt het allemaal wanneer je je vervolgens in ernst begint af te vragen of een doorgedreven spellingvereenvoudiging, die inderdaad telkens weer neerkomt op een fonetisering van het schrift, op het gelijkekansenveld ook maar een enkel positief resultaatje zou kunnen oogsten. Het antwoord hierop, helaas, is nee. In een maatschappij waarin niet iedereen precies hetzelfde strikt accentloze, hypercorrecte Nederlands spreekt, is 'schrijven zoals je het zegt' immers allesbehalve een geschikte methode om de verschillen tussen de meer en de minder taalvaardige burger effectief weg te werken: de platspreker die zich via het computerklavier exact hetzelfde uitdrukt als op mondelinge wijze, valt ook schriftelijk door de mand – kijk maar eens op internetfora. En dat kan toch niet de bedoeling zijn van de betreffende decolognisering, nee wacht, sorry, dekolonisering?</p>
+
+            <p>Daarbij, zolang in Antwerpen de vis viezer klinkt dan in West-Vlaanderen, waar men het liever over 'ves' heeft, kan van een fonetische eenheidstaal sowieso geen sprake zijn. En dan nog, zelfs. Drinkt de tijd? Is verassend nieuws een gerucht dat zich als een lopend vuurtje verspreid heeft? En wat is een kombek? Moeten, inderdaad, Engelse begrippen ook steeds fonetisch worden geschreven? Aai doent no.</p>
+
+            <p>Kortom, spellingvereenvoudiging maakt de zaken onveranderd ingewikkelder, op het onontwarbare af.</p>
+
+            <p>Dat soort problemen, echter, behoort aan Hull University en in de ideale wereld van een groeiend aantal mensen in ons eigen taalgebied – er bevinden zich zelfs literatoren in het gezelschap – voor eens en voor altijd tot het verleden. De voorgestelde oplossing, die met spellingvereenvoudiging zelfs niets meer te maken heeft, is even simpel als ronduit krankzinnig en destructief, en kan worden vergeleken met een poging om de armoede de wereld uit te helpen, niet door arme sloebers de gelegenheid te bieden om meer geld te verdienen, maar door hen daarentegen wijs te maken dat straks alles gratis is. De winkeliers zullen hen heel graag zien komen, dat laat zich raden.</p>
+
+            <p>In talig opzicht zwakkere studenten aan hun maatschappelijke noodlot overlaten, onder het mom van dekolonellisering, nee wacht, sorry, dekolonisering, is behalve cynisch en denigrerend ook vechtzuchtig makend laf en lui. Men benoemt een klaarblijkelijk schrijnend, nijpend, hardnekkig probleem en probeert het vervolgens op te lossen door te stellen dat het geen probleem meer is. Wat uiteraard louter betekent dat het niet langer hún probleem is. Niet langer het probleem van de docenten en diversiteitsbeleidvoerders, bedoel ik. Onverschilligheid troef.</p>
+
+            <p>Meer dan ooit staat in onze huidige wereld, waarin een telefoon allang niet meer dient om te bellen maar wel om te schrijven, het belang van schriftelijke taalbeheersing als een vuurtorenhoge paal boven water. Ook studenten die zich daar niet bewust van zijn, ontsnappen niet aan deze waarheid. En juist, ja, schrijven is moeilijk. Ikzelf bijvoorbeeld – u hebt dat wellicht al gemerkt – heb het lang lastig gehad met het woord 'dekolonisering'. Nog altijd, zelfs. En kijk, juist daarom ook zie ik het als mijn plicht om het mijn onversneden aandacht te blijven geven.</p>
+
+            <div class="author-bio">
+                Christophe Vekeman is auteur. In deze rubriek wikt hij de wereld.
+            </div>
+            
+            <div class="publication-date">
+                Verschenen op zaterdag 24 april 2021
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-image" src="" alt="Vergroot">
+    </div>
+    
+    <script>
+        // Open lightbox
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close lightbox
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close met ESC toets
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

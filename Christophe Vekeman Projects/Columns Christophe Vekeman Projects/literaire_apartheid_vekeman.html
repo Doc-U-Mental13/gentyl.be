@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literaire apartheid - Christophe Vekeman</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .article-container {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .article-header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .section-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0 20px 0;
+            line-height: 1.2;
+        }
+        
+        .author-info {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .author-bio {
+            font-style: italic;
+            color: #666;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .publication-date {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        
+        .article-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .article-image {
+                margin: 20px 0;
+            }
+        }
+
+        
+        /* Lightbox styling */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            cursor: pointer;
+            animation: fadeIn 0.3s;
+        }
+        
+        .lightbox-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .lightbox-close:hover {
+            color: #d4af37;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .article-image {
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        
+        .article-image:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <div class="section-label">DE WERELD VOLGENS</div>
+            <h1>Literaire apartheid</h1>
+            <div class="author-info">
+                <strong>Christophe Vekeman</strong><br>
+                zaterdag 3 april 2021 om 3.25 uur
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="../Prenten Christophe Vekeman Projects/literaire_apartheid.jpg" alt="Artwork" class="article-image" onclick="openLightbox(this.src)" title="Klik om te vergroten">
+        </div>
+        
+        <div class="article-content">
+            <p>Een van de vrij vele schrijvers wier werk mij door vrienden en andere mensen met smaak al meermaals aangeraden werd, maar van wie ik desondanks nog nooit een boek gelezen heb, is de genaamde Larry McMurtry. Dat zal deels te maken hebben met toeval, maar ook wel met het feit dat de auteur van westernromans als Buffalo girls en Lonesome dove tevens coscenarist was van Brokeback mountain, een rolprent uit 2006 waaraan ik tot mijn spijt bijzonder weinig kijkpret beleefde toen ik hem zag. Maar goed, zo is het leven, en buiten kijf dan weer staat dat de genoemde film mij weliswaar niet erg wist mee te slepen, maar los daarvan wel ronduit belángrijk geweest is: de tot de soundtrack behorende cover door Willie Nelson van het veelzeggend getitelde 'Cowboys are frequently, secretly fond of each other' was de eerste gay cowboysong die ooit door een countrygrootheid opgenomen werd, en op dezelfde wijze heeft ook Brokeback zelf onbetwijfelbaar aanzienlijk bijgedragen tot de verdere aanvaarding van homoseksualiteit door het – vooral – Amerikaanse publiek (in China en de meeste islamitische landen was de film verboden).</p>
+
+            <p>Dat noch Willie, noch McMurtry, noch Annie Proulx, die haar korte verhaal 'Brokeback mountain' in 1997 in The New Yorker publiceerde, tot de lgbt-gemeenschap gerekend kan of kon worden, zou in een iets betere wereld dan de onze het vermelden niet waard zijn, natuurlijk, want inderdaad, wat doet het er in godsnaam toe hoe kunstenaars – of kassières, of huurders, voetballers, kom, noem het ménsen – geaard zijn? Geen fluit, u zegt het. Helegans niets dus. Nul, noppes, nada.</p>
+
+            <p>Mooi zo, al kan ik niet beweren dat ik uw ruimdenkendheid waarlijk bewonder, daar is zij nu eenmaal te vanzelfsprekend en elementair voor. Evenmin als geaardheid laten wij ondertussen trouwens – wij, beschaafde lieden, kinderen van de moderne tijd, gezeglijke, goed opgevoede zonen en dochters van een onaantastbaar gelijkwaardigheidsdenken – schoenmaat, haar- of huidskleur, afkomst, lichaamslengte en zo verder een rol spelen bij de beoordeling van anderen en hun creaties. Logisch toch?</p>
+
+            <p>Ik heb lang gedacht van wel, ja, maar al geruime tijd is mettermaand – want zo snel gaat het – duidelijker aan het worden dat de toekomst wezenlijk slechts bitter weinig zal verschillen van de minst verkwikkelijke, zwadderigste vroegere tijden. Op niet meer dan een handlengte afstand van het bericht in De Standaard waarin afgelopen maandag werd gemeld dat McMurtry op 84-jarige leeftijd ons ondermaanse goodbye had gewuifd, viel bijvoorbeeld te lezen dat het rommelt in de rangen van Pen International, de onvolprezen organisatie die sinds honderd jaar over de hele wereld de vrijheid van schrijven en schrijvers nastreeft. Onder anderen de Italiaanse professor Chiara Bottici is met name van mening dat grondbeginselen als 'We defend the imagination and believe it to be as free as dreams' en 'We believe the imagination accesses all human experience, and reject restrictions of time, place, or origin' niet langer geldigheid bezitten en bijgevolg te vuur en te zwaard moeten worden bestreden. Samengevat: de verbeelding moet aan banden worden gelegd, de dreams in kwestie dienen nauwgezet te passen binnen de perken van een fantasieloos, opgelegd zwart-witdenken, en de schrijver die gekleurde personages in zijn werk wenst op te voeren, moet meer specifiek dezelfde teint als zij hebben. Hóé donker precies zijn eigen vel moet zijn om een auteur het recht te verlenen in de huid van een zwart personage te kruipen, is daarbij de vraag nog maar, en met hoeveel geslachtsgenoten bijvoorbeeld ikzelf naar bed moet zijn geweest om een mannelijke romanfiguur van mij met goed fatsoen hetzelfde te kunnen laten doen, heb ik ook niet achterhaald, maar in The Guardian koppelt hare hooggeleerdheid de verbeelding hoe dan ook rechtstreeks aan 'such massive collective lies such as racism, sexism, classism, and thus even fascism'.</p>
+
+            <p>De rillingen lopen je over de rug als je het leest, niet zozeer om wat Bottici zegt, want schabouwelijk geformuleerde prulpraat is uiteraard van alle tijden, maar wel vanwege het feit dat deze vorm van intellectueel vandalisme alsmaar meer algemeen beschouwd wordt als een onschuldige, door niets dan rechtvaardigheidsgevoelens ingegeven mening als een andere – in plaats van, zoals je toch zou kunnen verwachten, vernietigend de eigen ruiten te treffen van de malafide mafferiken die er zich aan bezondigen.</p>
+
+            <p>Van een dergelijke mening echter, vrees ik, is uitdrukkelijk geen sprake. Waar types als Bottici voor zeggen te vechten, is precies het omgekeerde van wat zij straks zullen hebben bereikt, want in een wereld waarin schrijvers niet langer de vrijheid hebben om zich in te leven in wie zij maar willen, en waarin het dus taboe is je te identificeren met mensen die van je verschillen, is en blijft de andere per definitie raar, vreemd en categorisch apart – net geen andere diersoort, zeg maar. Je mag er niet aan denken, nee.</p>
+
+            <p>En toch, beeld het je maar eens in.</p>
+
+            <div class="author-bio">
+                Christophe Vekeman is auteur. In deze rubriek wikt hij de wereld.
+            </div>
+            
+            <div class="publication-date">
+                Verschenen op zaterdag 3 april 2021
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-image" src="" alt="Vergroot">
+    </div>
+    
+    <script>
+        // Open lightbox
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close lightbox
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close met ESC toets
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Het vaccinatieparadijs - Christophe Vekeman</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .article-container {
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .article-header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .section-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0 20px 0;
+            line-height: 1.2;
+        }
+        
+        .author-info {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .author-bio {
+            font-style: italic;
+            color: #666;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .publication-date {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        
+        .article-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .article-image {
+                margin: 20px 0;
+            }
+        }
+
+        
+        /* Lightbox styling */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            cursor: pointer;
+            animation: fadeIn 0.3s;
+        }
+        
+        .lightbox-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .lightbox-close:hover {
+            color: #d4af37;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .article-image {
+            cursor: pointer;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        
+        .article-image:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <div class="section-label">DE WERELD VOLGENS</div>
+            <h1>Het vaccinatieparadijs</h1>
+            <div class="author-info">
+                <strong>Christophe Vekeman</strong><br>
+                zaterdag 19 juni 2021 om 3.25 uur
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <img src="../Prenten Christophe Vekeman Projects/het_vaccinatieparadijs.jpg" alt="Artwork" class="article-image" onclick="openLightbox(this.src)" title="Klik om te vergroten">
+        </div>
+        
+        <div class="article-content">
+            <p>Zozeer lijdt mijn vrouw aan spuitvrees dat ze zelfs al moeite met haar ademhaling ondervindt wanneer in de roman die ze zit te lezen onverhoeds een flesje prik ter tafel komt. Dat ze niet bepaald reikhalzend naar haar eerste vaccinatie uitkeek, is dan ook een rustig understatement. En dat zij op het moment suprême, bij het toegediend krijgen van haar injectie, maanwit wegtrok en zwijmelend tegen de vlakte dreigde te zeilen, lag bijgevolg keurig in de lijn van de verwachtingen. Dat er vervolgens een dokter bij gehaald werd, viel eveneens nog te begrijpen, natuurlijk, want je weet het nooit, en ze zijn er tenslotte voor, de artsen, daar in Flanders Expo. Maar wat daarna gebeurde, was raar.</p>
+
+            <p>Mijn vrouw vond het zelf verbazingwekkend, vertelde ze mij achteraf, maar ik merkte het op mijn beurt ook al toen zij eindelijk het vaccinatiecentrum uit geschreden kwam en door een tweetal juffrouwen zachthandig aan mij werd overgeleverd: de wildvreemde jongedames in kwestie waren engelen uit een andere wereld. De wijze waarop ze mijn wederhelft omringden met de beste, fijnzinnigste zorgen grensde zonder lullen aan je reinste liefde, elk woord dat zij spraken baadde in een zoete wolk van welgemeende goedheid, en het leek niet al te veel te schelen, zelfs, of een van hen had ons bij het ten afscheid nawuiven nog toegeroepen dat we zeker eens gezamenlijk op strandvakantie moesten gaan straks, nu het immers weer zou kunnen – ze keken er al naar uit.</p>
+
+            <p>Ook mensen, trouwens, voor wie zich laten vaccineren werkelijk geen centje pijn betekent, getuigen dezer dagen op sociale media massaal van een in wezen soortgelijke ervaring als die van mijn vrouw, en van de daaraan gekoppelde blije verwondering hunnerzijds: wat zijn al die mensen in die vaccinatiecentra gedienstig, wellevend en líéf! De minimumemotie die men bij zichzelf gewaarwordt, blijkt grote dankbaarheid hiervoor te zijn, maar velen gaan bij de verslaggeving van hun bezoek nog heel wat verder en gewagen van ontroering, hartverovering en regelrechte trots op al die strikt belangeloze lui die op de koop toe zeldzaam efficiënt te werk gaan en de boel op wieltjes laten lopen alsof ze nooit iets anders hebben gedaan. Mocht er aan de uitgang van het betreffende beschavingsparadijs, kortom, een boekenstand staan met alleen maar exemplaren van De meeste mensen deugen, geen kat zou er een kopen: we zouden het zo ook wel weten.</p>
+
+            <p>Misschien nog wel veelzeggender in dezen is dat anderen, die zeg maar niet meteen naar vrienden voor het leven op zoek zijn, hier en daar te kennen geven, op Facebook of in gesprekken, het welhaast op de heupen te hebben gekregen van zoveel lieflijke goedmoedigheid, die zij als opdringerig en zelfs als een tikje kleinerend ervoeren. En zo is het altijd wat, al kan ik niet ontkennen dat ook ik een heuse opstoot van agressie bij mezelf diende vast te stellen, met name toen ik onwillekeurig, te midden van al dat zonnigs, aan de zogeheten antivaxers denken moest. Asociale zeikers, dacht ik meer bepaald van de weeromstuit, kijk nu toch naar wat zich afspeelt hier, kijk naar wat jullie missen, kijk naar waar een samenleving op haar best – dus bij ontstentenis van minkukels als jullie – toe in staat is. Kijk dan en ga eens goed te rade bij jullie heilige, kostbare zelf. Wat bezielt jullie?</p>
+
+            <p>Akkoord, ik vind de dag-in-dag-uit-realiteit als een gegeven feit zelf ook bijzonder onbevredigend, eentonig en slaapwekkend, dus lang leve de fantasie, maar alsjeblief, kunnen jullie nu echt geen betere complottheorie vinden om hartstochtelijk aan te hangen? Als je niet in de wetenschap geloven wilt, bijvoorbeeld, geloof dan niet dat tabak, overmatig alcoholgebruik en uitlaatgassen ongezond zijn, weet je wel. Dat is toch veel gezelliger?</p>
+
+            <p>En zo zat ik daar inwendig te foeteren toen mijn eigen arm aan de beurt was. Zo werd ik onbehagen bij mezelf gewaar, juist doordat de hele omgeving waarin ik mij bevond niets dan welbehagen nastreefde en dampte van de vrolijkste gemeenschapszin, warmte en benevolentie. Ik vertoefde in een ideale wereld, die talloze vrijwilligers ten behoeve van hun medemensen hadden ingericht en onvermoeibaar op dit eigenste moment bléven creëren, en ik betrapte mezelf erop niet zozeer te denken dat de afwezigen ongelijk hadden, maar dat ze het niet eens waard waren om hier te zijn, ze mochten voor mijn part langdurig creperen, de paranoïde hufters. Dat was wat al die vriendelijkheid teweegbracht bij mij. Dat was wat al die geweldige hulpverschaffers, van de parkingwachter tot de gangschrobber, voor elkaar kregen en in mij deden ontstaan: felle weerzin jegens antivaxers.</p>
+
+            <p>Zouden zij het erom doen? Dan gaan zij in elk geval eens te meer heel trefzeker te werk, deze uitblinkers in ongenaakbare menslievendheid. Dan weten zij met z'n allen puik en probleemloos hun doel te bereiken.</p>
+
+            <p>Nee, echt, het zal toch geen complot zijn?</p>
+
+            <div class="author-bio">
+                Christophe Vekeman is auteur. In deze rubriek wikt hij de wereld.
+            </div>
+            
+            <div class="publication-date">
+                Verschenen op zaterdag 19 juni 2021
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Lightbox overlay -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-image" src="" alt="Vergroot">
+    </div>
+    
+    <script>
+        // Open lightbox
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close lightbox
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close met ESC toets
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
