@@ -1403,5 +1403,8 @@ Gentyl`
         // Initialiseer de gedichtenlijst bij laden
         createPoemList();
     </script>
+<!-- GoatCounter bezoekersstatistieken -->
+<script data-goatcounter="https://gentyl.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
