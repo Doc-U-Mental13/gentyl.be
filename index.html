@@ -408,14 +408,31 @@
         }
 
         /* VEKEMAN PROJECTS STYLING */
-        .vekeman-intro {
-            background: rgba(40, 40, 40, 0.6);
-            border-radius: 15px;
-            padding: 3rem;
-            margin: 2rem 0;
-            border: 2px solid rgba(212, 175, 55, 0.3);
-            text-align: center;
-        }
+.vekeman-intro {
+    background: rgba(40, 40, 40, 0.6);
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 2rem 0;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    text-align: center;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.vekeman-intro-tekst {
+    flex: 1;
+}
+
+.vekeman-intro-foto {
+    flex: 0 0 280px;
+}
+
+.vekeman-intro-foto img {
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
 
         .vekeman-intro h2 {
             font-size: 2.5rem;
@@ -530,7 +547,8 @@
             color: #888;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 768px) {.vekeman-intro { flex-direction: column; }
+.vekeman-intro-foto { flex: none; width: 100%; max-width: 280px; margin: 0 auto; }
             h1 { font-size: 2rem; }
             .poem-page { padding: 2rem 1.5rem; }
             .poem-page h2 { font-size: 1.8rem; }
@@ -744,15 +762,25 @@
         <!-- CHRISTOPHE VEKEMAN PROJECTS PAGE -->
         <div id="vekeman" class="page">
             <div class="vekeman-intro">
-                <h2>Christophe Vekeman Projects</h2>
-                <h3>Columns, video's en meer</h3>
-                <p>✍️ Vekeman Columns in beeld door Gentyl</p>
-                <p>Christophe Vekeman's columns in De Standaard Weekblad waren voor mij wekelijks een uitnodiging tot creëren. Een jaar lang vertaalde ik zijn woorden naar beelden - prenten (visueeltjes zoals ik ze zelf noem).</p>
-                <div class="citaat">
-                    "Al vele weken achtereen mag ik het tot mijn grote vreugde meemaken dat mijn column in De Standaard Weekblad Wim Vanhastel tot inspiratie strekt voor een collage."<br><br>
-                    <strong>- Christophe Vekeman</strong>
-                </div>
-            </div>
+    <div class="vekeman-intro-tekst">
+        <h2>Christophe Vekeman Projects</h2>
+        <h3>Columns, video's en meer</h3>
+        <p>✏️ Vekeman Columns in beeld door Gentyl</p>
+        <p>Christophe Vekeman's columns in De Standaard Weekblad waren voor mij wekelijks een uitnodiging tot creëren. Een jaar lang vertaalde ik zijn woorden naar beelden - prenten (visueeltjes zoals ik ze zelf noem).</p>
+        <div class="citaat">
+            "Al vele weken achtereen mag ik het tot mijn grote vreugde meemaken dat mijn column in De Standaard Weekblad Wim Vanhastel tot inspiratie strekt voor een collage."<br><br>
+            <strong>- Christophe Vekeman</strong>
+        </div>
+    </div>
+    <div class="vekeman-intro-foto">
+        <img src="images/Christophe Vekeman - (foto Mieke De Ley) kopie.png" alt="Christophe Vekeman">
+        <!-- Link naar Wikipedia pagina van Christophe Vekeman -->
+        <p style="margin-top: 0.8rem; text-align: center;">
+            <a href="https://nl.wikipedia.org/wiki/Christophe_Vekeman" target="_blank" style="color: #d4af37; font-size: 0.95rem; text-decoration: none; font-style: italic; transition: color 0.3s;">
+                Christophe Vekeman op Wikipedia →
+            </a>
+        </p>
+    </div>
 
             <!-- Columns grid op chronologische volgorde -->
             <div class="columns-grid">
