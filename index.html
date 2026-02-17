@@ -408,31 +408,31 @@
         }
 
         /* VEKEMAN PROJECTS STYLING */
-.vekeman-intro {
-    background: rgba(40, 40, 40, 0.6);
-    border-radius: 15px;
-    padding: 3rem;
-    margin: 2rem 0;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    text-align: center;
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-}
+        .vekeman-intro {
+            background: rgba(40, 40, 40, 0.6);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            text-align: center;
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
 
-.vekeman-intro-tekst {
-    flex: 1;
-}
+        .vekeman-intro-tekst {
+            flex: 1;
+        }
 
-.vekeman-intro-foto {
-    flex: 0 0 280px;
-}
+        .vekeman-intro-foto {
+            flex: 0 0 280px;
+        }
 
-.vekeman-intro-foto img {
-    width: 100%;
-    border-radius: 10px;
-    border: 2px solid rgba(212, 175, 55, 0.3);
-}
+        .vekeman-intro-foto img {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
 
         .vekeman-intro h2 {
             font-size: 2.5rem;
@@ -484,7 +484,7 @@
             cursor: pointer;
             text-decoration: none;
             display: block;
-            color: #90EE90; /* pastelgroen voor linktekst bovenaan */
+            color: #90EE90;
         }
 
         .column-card:hover {
@@ -518,7 +518,7 @@
 
         .column-card-titel {
             font-size: 1.2rem;
-            color: #d4af37; /* goud voor grote column titel */
+            color: #d4af37;
             font-weight: bold;
         }
 
@@ -526,6 +526,121 @@
             font-size: 0.85rem;
             color: #666;
             margin-top: 0.3rem;
+        }
+
+        /* BOEKEN OVERLAY STYLING */
+        .boeken-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s;
+        }
+
+        .boeken-overlay.active {
+            display: block;
+        }
+
+        .boeken-overlay-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .boeken-overlay-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 1rem;
+        }
+
+        .boeken-overlay-header h2 {
+            color: #d4af37;
+            font-size: 2rem;
+            font-style: italic;
+        }
+
+        .boeken-sluit-btn {
+            background: #d4af37;
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .boeken-sluit-btn:hover {
+            background: #f0c050;
+        }
+
+        .boeken-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .boek-card {
+            background: rgba(40, 40, 40, 0.8);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .boek-card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .boek-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: contain;
+            background: #1a1a1a;
+            padding: 0.5rem;
+        }
+
+        .boek-card-info {
+            padding: 1rem;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .boek-card-titel {
+            color: #d4af37;
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .boek-card-jaar {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .boek-card-genre {
+            color: #888;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 0.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .boeken-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+            .boek-card img { height: 200px; }
+            .boeken-overlay-header h2 { font-size: 1.4rem; }
         }
 
         footer {
@@ -547,8 +662,9 @@
             color: #888;
         }
 
-        @media (max-width: 768px) {.vekeman-intro { flex-direction: column; }
-.vekeman-intro-foto { flex: none; width: 100%; max-width: 280px; margin: 0 auto; }
+        @media (max-width: 768px) {
+            .vekeman-intro { flex-direction: column; }
+            .vekeman-intro-foto { flex: none; width: 100%; max-width: 280px; margin: 0 auto; }
             h1 { font-size: 2rem; }
             .poem-page { padding: 2rem 1.5rem; }
             .poem-page h2 { font-size: 1.8rem; }
@@ -762,31 +878,36 @@
         <!-- CHRISTOPHE VEKEMAN PROJECTS PAGE -->
         <div id="vekeman" class="page">
             <div class="vekeman-intro">
-    <div class="vekeman-intro-tekst">
-        <h2>Christophe Vekeman Projects</h2>
-        <h3>Columns, video's en meer</h3>
-        <p>✏️ Vekeman Columns in beeld door Gentyl</p>
-        <p>Christophe Vekeman's columns in De Standaard Weekblad waren voor mij wekelijks een uitnodiging tot creëren. Een jaar lang vertaalde ik zijn woorden naar beelden - prenten (visueeltjes zoals ik ze zelf noem).</p>
-        <div class="citaat">
-            "Al vele weken achtereen mag ik het tot mijn grote vreugde meemaken dat mijn column in De Standaard Weekblad Wim Vanhastel tot inspiratie strekt voor een collage."<br><br>
-            <strong>- Christophe Vekeman</strong>
-        </div>
-    </div>
-    <div class="vekeman-intro-foto">
-        <img src="images/Christophe Vekeman - (foto Mieke De Ley) kopie.png" alt="Christophe Vekeman">
-        <!-- Link naar Wikipedia pagina van Christophe Vekeman -->
-        <p style="margin-top: 0.8rem; text-align: center;">
-            <a href="https://nl.wikipedia.org/wiki/Christophe_Vekeman" target="_blank" style="color: #d4af37; font-size: 0.95rem; text-decoration: none; font-style: italic; transition: color 0.3s;">
-                Christophe Vekeman op Wikipedia →
-            </a>
-        </p>
-    </div>
-</div>
+                <div class="vekeman-intro-tekst">
+                    <h2>Christophe Vekeman Projects</h2>
+                    <h3>Columns, video's en meer</h3>
+                    <p>✏️ Vekeman Columns in beeld door Gentyl</p>
+                    <p>Christophe Vekeman's columns in De Standaard Weekblad waren voor mij wekelijks een uitnodiging tot creëren. Een jaar lang vertaalde ik zijn woorden naar beelden - prenten (visueeltjes zoals ik ze zelf noem).</p>
+                    <div class="citaat">
+                        "Al vele weken achtereen mag ik het tot mijn grote vreugde meemaken dat mijn column in De Standaard Weekblad Wim Vanhastel tot inspiratie strekt voor een collage."<br><br>
+                        <strong>- Christophe Vekeman</strong>
+                    </div>
+                </div>
+                <div class="vekeman-intro-foto">
+                    <img src="images/Christophe Vekeman - (foto Mieke De Ley) kopie.png" alt="Christophe Vekeman">
+                    <!-- Link naar Wikipedia pagina -->
+                    <p style="margin-top: 0.8rem; text-align: center;">
+                        <a href="https://nl.wikipedia.org/wiki/Christophe_Vekeman" target="_blank" style="color: #d4af37; font-size: 0.95rem; text-decoration: none; font-style: italic;">
+                            Christophe Vekeman op Wikipedia →
+                        </a>
+                    </p>
+                    <!-- Knop naar bibliografie overlay -->
+                    <p style="margin-top: 0.5rem; text-align: center;">
+                        <button onclick="openBoekenOverlay()" style="background: #d4af37; color: #000; border: none; padding: 0.6rem 1.2rem; font-size: 0.9rem; cursor: pointer; border-radius: 5px; font-family: 'Georgia', serif; font-weight: bold; transition: all 0.3s;">
+                            📚 Bibliografie →
+                        </button>
+                    </p>
+                </div>
+            </div>
 
             <!-- Columns grid op chronologische volgorde -->
             <div class="columns-grid">
-
-                <!-- 1. Billy - 27 maart 2021 -->
+                <!-- 1. Billy -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/billy_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/billy.jpg" alt="Billy" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -795,8 +916,7 @@
                         <div class="column-nummer">Column 1</div>
                     </div>
                 </a>
-
-                <!-- 2. Literaire apartheid - 3 april 2021 -->
+                <!-- 2. Literaire apartheid -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/literaire_apartheid_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/literaire_apartheid.jpg" alt="Literaire apartheid" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -805,8 +925,7 @@
                         <div class="column-nummer">Column 2</div>
                     </div>
                 </a>
-
-                <!-- 3. Eeuwige jeugd - 10 april 2021 -->
+                <!-- 3. Eeuwige jeugd -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/eeuwige_jeugd_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/eeuwige_jeugd.jpg" alt="Eeuwige jeugd" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -815,8 +934,7 @@
                         <div class="column-nummer">Column 3</div>
                     </div>
                 </a>
-
-                <!-- 4. Schudden met die billen - 17 april 2021 -->
+                <!-- 4. Schudden met die billen -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/schudden_met_die_billen_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/schudden_met_die_billen.jpg" alt="Schudden met die billen" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -825,8 +943,7 @@
                         <div class="column-nummer">Column 4</div>
                     </div>
                 </a>
-
-                <!-- 5. Aandacht voor dekolonisering - 24 april 2021 -->
+                <!-- 5. Aandacht voor dekolonisering -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/aandacht_voor_dekolonisering_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/aandacht_voor_dekolonisering.jpg" alt="Aandacht voor dekolonisering" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -835,8 +952,7 @@
                         <div class="column-nummer">Column 5</div>
                     </div>
                 </a>
-
-                <!-- 6. Schoorvoetend richting dansvloer - 30 april 2021 -->
+                <!-- 6. Schoorvoetend richting dansvloer -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/schoorvoetend_richting_dansvloer_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/schoorvoetend_richting_dansvloer.jpg" alt="Schoorvoetend richting dansvloer" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -845,8 +961,7 @@
                         <div class="column-nummer">Column 6</div>
                     </div>
                 </a>
-
-                <!-- 7. Oerwoudgeluiden - 8 mei 2021 -->
+                <!-- 7. Oerwoudgeluiden -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/oerwoudgeluiden_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/oerwoudgeluiden.jpg" alt="Oerwoudgeluiden" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -855,8 +970,7 @@
                         <div class="column-nummer">Column 7</div>
                     </div>
                 </a>
-
-                <!-- 8. Rook der vrijheid - 15 mei 2021 -->
+                <!-- 8. Rook der vrijheid -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/rook_der_vrijheid_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/rook_der_vrijheid.jpg" alt="Rook der vrijheid" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -865,8 +979,7 @@
                         <div class="column-nummer">Column 8</div>
                     </div>
                 </a>
-
-                <!-- 9. Volmaakt ontwaakt - 22 mei 2021 -->
+                <!-- 9. Volmaakt ontwaakt -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/volmaakt_ontwaakt_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/volmaakt_ontwaakt.jpg" alt="Volmaakt ontwaakt" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -875,8 +988,7 @@
                         <div class="column-nummer">Column 9</div>
                     </div>
                 </a>
-
-                <!-- 10. Bob en Geike - 29 mei 2021 -->
+                <!-- 10. Bob en Geike -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/bob_en_geike_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/bob_en_geike.jpg" alt="Bob en Geike" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -885,8 +997,7 @@
                         <div class="column-nummer">Column 10</div>
                     </div>
                 </a>
-
-                <!-- 11. Als Jürgen Halil heette - 5 juni 2021 -->
+                <!-- 11. Als Jürgen Halil heette -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/als_jurgen_halil_heette_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/als_jurgen_halil_heette.jpg" alt="Als Jürgen Halil heette" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -895,8 +1006,7 @@
                         <div class="column-nummer">Column 11</div>
                     </div>
                 </a>
-
-                <!-- 12. Boekverbranding - 12 juni 2021 -->
+                <!-- 12. Boekverbranding -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/boekverbranding_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/boekverbranding.jpg" alt="Boekverbranding" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -905,8 +1015,7 @@
                         <div class="column-nummer">Column 12</div>
                     </div>
                 </a>
-
-                <!-- 13. Het vaccinatieparadijs - 19 juni 2021 -->
+                <!-- 13. Het vaccinatieparadijs -->
                 <a href="Christophe Vekeman Projects/Columns Christophe Vekeman Projects/het_vaccinatieparadijs_vekeman.html" target="_blank" class="column-card">
                     <img src="Christophe Vekeman Projects/Prenten Christophe Vekeman Projects/het_vaccinatieparadijs.jpg" alt="Het vaccinatieparadijs" onerror="this.style.background='#2a2a2a'; this.style.height='220px';">
                     <div class="column-card-info">
@@ -915,16 +1024,13 @@
                         <div class="column-nummer">Column 13</div>
                     </div>
                 </a>
-
             </div>
 
             <!-- Vekeman Video's -->
             <div class="section-header" style="margin-top: 4rem;">
                 <h2 style="font-size: 2rem;">Video's</h2>
             </div>
-
             <div class="video-grid">
-                <!-- C.V.-Man video -->
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: black; display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=kOVqERV6lg4', '_blank')">
@@ -938,8 +1044,6 @@
                     <div class="video-number">C.V.-Man</div>
                     <a href="https://www.youtube.com/watch?v=kOVqERV6lg4" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
-
-                <!-- Buck de literaire cowboy video -->
                 <div class="video-item">
                     <div class="video-wrapper" style="padding-bottom: 0; height: 250px;">
                         <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B4513, #D2691E); display: flex; align-items: center; justify-content: center; cursor: pointer;" onclick="window.open('https://www.youtube.com/watch?v=yw2V20612aY', '_blank')">
@@ -1066,6 +1170,189 @@
         </div>
     </div>
 
+    <!-- BOEKEN OVERLAY (pop-up) -->
+    <div id="boekenOverlay" class="boeken-overlay">
+        <div class="boeken-overlay-content">
+            <div class="boeken-overlay-header">
+                <h2>📚 Bibliografie Christophe Vekeman</h2>
+                <button class="boeken-sluit-btn" onclick="sluitBoekenOverlay()">✕ Sluiten</button>
+            </div>
+            <div class="boeken-grid">
+                <!-- 1 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/ALLE MUSSEN ZULLEN STERVEN, roman CV.jpg" alt="Alle mussen zullen sterven">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Alle mussen zullen sterven</div>
+                        <div class="boek-card-jaar">1999</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 2 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/IEDEREEN KAN HET, roman CV.jpg" alt="Iedereen kan het">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Iedereen kan het</div>
+                        <div class="boek-card-jaar">2001</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 3 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/WEES MAAR NIET BANG, verhalenbundel CV.jpg" alt="Wees maar niet bang">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Wees maar niet bang</div>
+                        <div class="boek-card-jaar">2002</div>
+                        <div class="boek-card-genre">Verhalenbundel</div>
+                    </div>
+                </div>
+                <!-- 4 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/EEN BORREL MET BARRY, roman CV.jpg" alt="Een borrel met Barry">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Een borrel met Barry</div>
+                        <div class="boek-card-jaar">2005</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 5 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/LEGE JURKEN, roman CV.jpg" alt="Lege jurken">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Lege jurken</div>
+                        <div class="boek-card-jaar">2008</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 6 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/LEVEN IS WERKEN, essays, reportages en interviews CV.jpg" alt="Leven is werk">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Leven is werk</div>
+                        <div class="boek-card-jaar">2009</div>
+                        <div class="boek-card-genre">Essays, reportages en interviews</div>
+                    </div>
+                </div>
+                <!-- 7 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/SENORITA'S gedichten en andere podiumteksten CV.jpg" alt="Señorita's">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Señorita's</div>
+                        <div class="boek-card-jaar">2009</div>
+                        <div class="boek-card-genre">Gedichten en podiumteksten</div>
+                    </div>
+                </div>
+                <!-- 8 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/49 MANIEREN OM DE DAG DOOR TE KOMEN, roman CV.jpg" alt="49 manieren om de dag door te komen">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">49 manieren om de dag door te komen</div>
+                        <div class="boek-card-jaar">2010</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 9 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/EEN UITZONDERLIJKE VROUW, roman CV.jpg" alt="Een uitzonderlijke vrouw">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Een uitzonderlijke vrouw</div>
+                        <div class="boek-card-jaar">2012</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 10 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/MARIE, roman CV.jpg" alt="Marie">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Marie</div>
+                        <div class="boek-card-jaar">2013</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 11 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/HOTEL ROZENSTOK, roman CV.jpg" alt="Hotel Rozenstok">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Hotel Rozenstok</div>
+                        <div class="boek-card-jaar">2015</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 12 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/DIT IS GEEN SLAAPKAMER MEER NU, gedichten CV.jpg" alt="Dit is geen slaapkamer meer nu">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Dit is geen slaapkamer meer nu</div>
+                        <div class="boek-card-jaar">2016</div>
+                        <div class="boek-card-genre">Gedichten</div>
+                    </div>
+                </div>
+                <!-- 13 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/JOHNNY PAYCHECK, biografie CV.jpg" alt="Johnny Paycheck">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Johnny Paycheck</div>
+                        <div class="boek-card-jaar">2016</div>
+                        <div class="boek-card-genre">Biografie</div>
+                    </div>
+                </div>
+                <!-- 14 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/GEZELLIG IS ANDERS, novelle CV.jpg" alt="Gezellig is anders">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Gezellig is anders</div>
+                        <div class="boek-card-jaar">2016</div>
+                        <div class="boek-card-genre">Novelle</div>
+                    </div>
+                </div>
+                <!-- 15 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/MENSEN ALS IK, roman CV.jpg" alt="Mensen als ik">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Mensen als ik</div>
+                        <div class="boek-card-jaar">2018</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 16 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/NOOIT MEER KLAGEN, verhaal CV.jpg" alt="Nooit meer klagen">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Nooit meer klagen</div>
+                        <div class="boek-card-jaar"></div>
+                        <div class="boek-card-genre">Kort verhaal</div>
+                    </div>
+                </div>
+                <!-- 17 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/CRUISE, roman CV.jpg" alt="Cruise">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Cruise</div>
+                        <div class="boek-card-jaar">2019</div>
+                        <div class="boek-card-genre">Roman</div>
+                    </div>
+                </div>
+                <!-- 18 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/CARWASH.jpg" alt="Carwash">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Carwash</div>
+                        <div class="boek-card-jaar">2021</div>
+                        <div class="boek-card-genre">Musical</div>
+                    </div>
+                </div>
+                <!-- 19 -->
+                <div class="boek-card">
+                    <img src="Christophe Vekeman Projects/boeken-christophe-vekeman-covers/tot God.png" alt="Tot God">
+                    <div class="boek-card-info">
+                        <div class="boek-card-titel">Tot God</div>
+                        <div class="boek-card-jaar">2024</div>
+                        <div class="boek-card-genre">Non-fictie</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div style="max-width: 500px; margin: 0 auto 2rem;">
             <h3 style="color: #d4af37; margin-bottom: 1rem;">Snel Contact</h3>
@@ -1083,309 +1370,26 @@
     <script>
         // Gedichten array
         const poems = [
-            {
-                title: "Besef twee punt nul. (10/02/2023)",
-                preview: "En toen stond stil die zekerheid...",
-                text: `En toen stond stil die zekerheid, deze was nochtans zo goed op dreef.
-
-Gentyl (Wim Vanhastel)`
-            },
-            {
-                title: "En waan u. (02/07/2021)",
-                preview: "Nu de oogleden zachtjes dalen...",
-                text: `Nu de oogleden zachtjes dalen,
-om in het donkere duister te verdwalen,
-absorbeer je geur en tonen,
-tijd om tot rust te komen.
-
-Geef je over, laat je gaan,
-wees bewust van uw bestaan,
-van moment in hier en nu,
-en waan u,...waan u.
-
-Gentyl (Wim Vanhastel)`
-            },
-            {
-                title: "Waarom is mens zijn zo lastig? (12/06/2022)",
-                preview: "Kijk je terug dan zie je een pamper...",
-                text: `Kijk je terug dan zie je een pamper.
-Kijk je vooruit dan zie je een pamper.
-Kijk je naar nu dan heb je amper,
-tijd om te leven door al dat werk.
-Dus eigenlijk is het leven van de foef naar de zerk.
-
-Gentyl (Wim Vanhastel)`
-            },
-            {
-                title: "Wanneer het schrijven mij nauwer ligt",
-                preview: "Tekst, teksten, zinnen, inhoud...",
-                text: `Wanneer het schrijven mij nauwer ligt dan het hard fietsende kromgebogen lied tegen die die wint! ;-)
-
-Tekst, teksten, zinnen, inhoud, woorden gedachten, letters en tekens, gevoel, meningen, spreuk of uitspraak, symbolische spaties tussen schrijf en lees fauten.
-
-Genres en soorten in boeken en bladen, in kranten en essays over grammaticale dwalingen van schrijvers via brieven van lezers. Alfa Latino, bèta of Vlaams blokkers met soorten van hoofd en zesentwintig waarvan er mede of klinken. Van vocaal naar audio en regionaal, naar vertaal, beluisterd en verbaal gefluisterd.
-
-Met dit gedicht ver en onduidelijk verklaar ik u geletterde prikkel, jij ingewikkelde taal barrière besmet met globale van elders komende invloed. Kortom lang uitgelegd met letter en woord de zin gevlochten tot dicht of bijsluiter maar vooral bestemd om na het lezen van dit gesprek in mijn hoofd te weten, er mag niks meer verloren gaan, aldus de geschifte geschrifte!
-
-Gentyl`
-            },
-            {
-                title: "Breindenker (02/07/2021)",
-                preview: "Niemand zit te wachten op het onvoltooide brein...",
-                text: `Niemand zit te wachten op het onvoltooide brein, welk met moeite en overtuigingskracht toch te veel moeilijke woorden zal nodig hebben om het uit gelegd te krijgen.
-
-Gentyl (Wim Vanhastel)`
-            },
-            {
-                title: "Muizenvoer",
-                preview: "Een rat die grote muis...",
-                text: `Een rat die grote muis,
-je weet wel van tussen je huis,
-die 's nachts zo krabt en doet
-in uw riool en daar ook broedt.
-
-Die rat zo'n grote muis
-heeft wel een grotere muil,
-zo kan die naar believen
-zich wentelen in uw vuil.
-
-Die rat van in uwen kelder,
-die grote muis onder uw keet
-die dacht even niet helder
-en kwam vast in een muizenspleet.
-
-Nu zat ze daar en ging ze dood,
-in die spleet net onder uw vloer,
-wat voor die kleine muis de kans bood
-de rat op te eten als muizenvoer.
-
-Gentyl`
-            },
-            {
-                title: "Nietig (02/07/2021)",
-                preview: "We zijn zo complex en toch zo nietig...",
-                text: `We zijn zo complex en toch zo nietig,
-dat maakt me dan ook o zo verdrietig.
-
-Zal ik mezelf ooit kunnen uitpluizen,
-rustig houden en bedaren?
-Tussen al hun regels en wetten,
-die mijn expressie beletten.
-
-Het moeten,
-het varen,
-het staren en kinderen baren,
-het spel verplicht te spelen,
-met iedereen,
-met zo velen,
-door liefde te beminnen,
-doch nooit te kunnen winnen.
-
-Gentyl (Wim Vanhastel)`
-            },
-            {
-                title: "Broodnodig zuur",
-                preview: "De broodjes gingen als warme broodjes...",
-                text: `De broodjes gingen als warme broodjes over de toonbank.
-De broodjes waren niet warm,
-toch gingen ze als warme broodjes over de toonbank.
-
-Die broodjes die als warme broodjes over de toonbank gingen waren koud.
-Ze hadden zevenendertig jaar in de diepvries gelegen.
-En toch gingen ze als warme broodjes over de toonbank.
-
-Ze waren zuur,
-die broodjes die als warme broodjes over de toonbank gingen.
-Daardoor vlogen,
-die broodjes die als warme broodjes over de toonbank gingen,
-niet als zoete broodjes de deur uit,
-maar gingen ze wel als warme broodjes die toonbank over.
-
-Maar zuur, zuur dat ze waren!
-Waw, het is warm vandaag.
-
-by Gentyl`
-            },
-            {
-                title: "Echt?",
-                preview: "Vroeger was. Nu,...was...",
-                text: `Vroeger was.
-Nu,...was.
-Maar nu is nog maar net geweest, of het is al toen,
-wat op zijn beurt weer vroeger is.
-Dus vroeger is nu wat toen is geweest!
-
-Gentyl`
-            },
-            {
-                title: "Eigen weg wijs",
-                preview: "Ik, ik heb alles zelf aangeleerd...",
-                text: `Ik, ik heb alles zelf aangeleerd, zei de autodidact.
-Bij mij was het van moeten, zei de ervaringsdeskundige.
-Ik ga af op het gevoel, zei de homeopaat.
-Bij mij was't op den tast zei de slechtziende.
-Bij mij ook zei de rokkenjager.
-
-Ik ga af, echt af en alleen op "mijn" gevoel, zei de psychopaat. Waarom vertel ik u dit eigenlijk?
-
-Ik, ik volg het pad wat door Engelen des Heren is uitgestippeld, zei de gelovige.
-
-Ik tippel langs het pad die mijn pooier via google maps heeft uitgezocht waar het volgens hem het meest opbrengt.
-
-Wablief? zei de slechthorende.
-
-Gentyl`
-            },
-            {
-                title: "Isa is",
-                preview: "Ik leef op de rug van een schrijver...",
-                text: `Ik leef op de rug van een schrijver, ik schrijf op de rug van zijn blad.
-Ik lees mijn gezicht in zijn vijver, niet wetend of ik dit wel mag.
-
-Zo stout of verkeerd en toch echt een fan,
-geef ik zomaar toe gedichten ik kan.
-Daar niks zeker is, van woord losgerukt,
-kan ik enkel schrijven: "Isa is mijn geluk!"
-
-Gentyl`
-            },
-            {
-                title: "Leunen op de leugen (12/06/2023)",
-                preview: "Leunend op de leugens, voorbode van verheugendst...",
-                text: `Leunend op de leugens,
-voorbode van verheugendst,
-in roes van tijd,
-in roes van drang,
-gevolgd door spijt en eigenbelang.
-
-Knielend aan de zielen,
-voorbode van vernielen,
-op zoek naar zin,
-in toen en heden,
-maar weeral niettemin ook zonder reden.
-
-Hangend aan de vragen,
-voorbode van verdragen,
-immens onwetend,
-teleurgesteld,
-existerend opvretend en vast gekneld.
-
-Schreeuwend door de eeuwen,
-voorbode van verderf,
-net door die onmacht,
-en door die woede,
-naar die mij baarde en die mij broedde.
-
-Gentyl (Wim Vanhastel)`
-            },
-            {
-                title: "Mijn duifke mijn alles",
-                preview: "Ze kent mij zo goed...",
-                text: `Ze kent mij zo goed
-Ze is mij soms voor
-Als een vlieg voor mijn neus
-Als een worm in mijn oor
-
-Haar kennis en inzicht
-wat zij heeft over mij
-die reflectie of spiegel
-Laat me zien, maakt me vrij.
-
-Gentyl`
-            },
-            {
-                title: "Niet of, maar wanneer? (01/09/2021)",
-                preview: "Als kind te hebben geleefd, zo onwetend en zo vrij...",
-                text: `Als kind te hebben geleefd, zo onwetend en zo vrij.
-In onschuld, in vergetelheid, zo zorgeloos en zo blij.
-Net dan komen ze me zeggen en dat het hen ook spijt,
-We moeten u toch zeggen:"Je hebt maar een beperkte tijd"!
-
-Dus dat er een eind aan komt was een klap in mijn gezicht.
-Ik was jong en werd volwassen, op weg naar roem en licht.
-
-Was dat een klap in mijn gezicht!
-Natuurlijk raakte ik ontwricht.
-Sinds sleurde ik 'hun' zwaar gewicht,
-doorheen mijn doen en laten.
-
-Maar blijf vooral fit en gezond.
-Zo lang en 't liefst boven de grond.
-Doch kunnen wij u helaas niet zeggen,
-wanneer u juist uw koppeke zult leggen.
-
-Niet klagen, niets vragen, niet neuten of zagen.
-Sta op tijd op en zoekt u een job.
-Net lijk de reste, met niet te veel geste!
-Doe maar gewoon en zonder vertoon.
-
-Maar nu eerst aan het werk,
-sta je straks hopelijk sterk,
-om een wederhelft te zoeken,
-en het moederhuis te bezoeken.
-
-Dus ja, veel werken en heel veel sparen,
-veel geld en mooi gerief vergaren,
-veel werken, geld scheppen en blijven zwoegen,
-het liefste volcontinue of minstens in drie ploegen.
-
-Eigenlijk een beetje zoals de rest
-Maar doe vooral uw best
-want anders kan het rap gaan
-dat je op straat zal staan
-
-Proberen hogerop te komen
-Veel werken aan uw dromen
-verantwoordelijkheid en gezag
-al betaal jij het gelag
-
-Gentyl (Wim Vanhastel)`
-            },
-            {
-                title: "Om de hoek",
-                preview: "Wat schuilt om een hoek...",
-                text: `Wat schuilt om een hoek, is pas zichtbaar als je kijkt.
-
-Gentyl`
-            },
-            {
-                title: "Omgaan",
-                preview: "Om gaan met het om gaan met!",
-                text: `Om gaan met het om gaan met!
-
-Gentyl`
-            },
-            {
-                title: "Seconden tikken weg in...",
-                preview: "Het leven, de wachtzaal van de dood.",
-                text: `Het leven, de wachtzaal van de dood.
-
-Gentyl`
-            },
-            {
-                title: "Zijn doel vooruit",
-                preview: "Vooruit gaan is belangrijk...",
-                text: `Vooruit gaan is belangrijk, maar wat is het doel?
-Sta daar maar eens bij stil.
-
-Gentyl`
-            },
-            {
-                title: "Gentyl - Echt? Echt.",
-                preview: "De kunst is om het leven niet serieus te nemen...",
-                text: `De kunst is om het leven niet serieus te nemen terwijl je het leven niet serieus neemt!
-
-Gentyl`
-            },
-            {
-                title: "Beschaamd",
-                preview: "Zijde gij niet beschaamd?",
-                text: `Zijde gij niet beschaamd?
-Ge zou moeten beschaamd zijn!
-Ik zou beschaamd zijn in uw plaats,...
-
-Gentyl`
-            }
+            { title: "Besef twee punt nul. (10/02/2023)", preview: "En toen stond stil die zekerheid...", text: `En toen stond stil die zekerheid, deze was nochtans zo goed op dreef.\n\nGentyl (Wim Vanhastel)` },
+            { title: "En waan u. (02/07/2021)", preview: "Nu de oogleden zachtjes dalen...", text: `Nu de oogleden zachtjes dalen,\nom in het donkere duister te verdwalen,\nabsorbeer je geur en tonen,\ntijd om tot rust te komen.\n\nGeef je over, laat je gaan,\nwees bewust van uw bestaan,\nvan moment in hier en nu,\nen waan u,...waan u.\n\nGentyl (Wim Vanhastel)` },
+            { title: "Waarom is mens zijn zo lastig? (12/06/2022)", preview: "Kijk je terug dan zie je een pamper...", text: `Kijk je terug dan zie je een pamper.\nKijk je vooruit dan zie je een pamper.\nKijk je naar nu dan heb je amper,\ntijd om te leven door al dat werk.\nDus eigenlijk is het leven van de foef naar de zerk.\n\nGentyl (Wim Vanhastel)` },
+            { title: "Wanneer het schrijven mij nauwer ligt", preview: "Tekst, teksten, zinnen, inhoud...", text: `Wanneer het schrijven mij nauwer ligt dan het hard fietsende kromgebogen lied tegen die die wint! ;-)\n\nTekst, teksten, zinnen, inhoud, woorden gedachten, letters en tekens, gevoel, meningen, spreuk of uitspraak, symbolische spaties tussen schrijf en lees fauten.\n\nGenres en soorten in boeken en bladen, in kranten en essays over grammaticale dwalingen van schrijvers via brieven van lezers. Alfa Latino, bèta of Vlaams blokkers met soorten van hoofd en zesentwintig waarvan er mede of klinken. Van vocaal naar audio en regionaal, naar vertaal, beluisterd en verbaal gefluisterd.\n\nMet dit gedicht ver en onduidelijk verklaar ik u geletterde prikkel, jij ingewikkelde taal barrière besmet met globale van elders komende invloed. Kortom lang uitgelegd met letter en woord de zin gevlochten tot dicht of bijsluiter maar vooral bestemd om na het lezen van dit gesprek in mijn hoofd te weten, er mag niks meer verloren gaan, aldus de geschifte geschrifte!\n\nGentyl` },
+            { title: "Breindenker (02/07/2021)", preview: "Niemand zit te wachten op het onvoltooide brein...", text: `Niemand zit te wachten op het onvoltooide brein, welk met moeite en overtuigingskracht toch te veel moeilijke woorden zal nodig hebben om het uit gelegd te krijgen.\n\nGentyl (Wim Vanhastel)` },
+            { title: "Muizenvoer", preview: "Een rat die grote muis...", text: `Een rat die grote muis,\nje weet wel van tussen je huis,\ndie 's nachts zo krabt en doet\nin uw riool en daar ook broedt.\n\nDie rat zo'n grote muis\nheeft wel een grotere muil,\nzo kan die naar believen\nzich wentelen in uw vuil.\n\nDie rat van in uwen kelder,\ndie grote muis onder uw keet\ndie dacht even niet helder\nen kwam vast in een muizenspleet.\n\nNu zat ze daar en ging ze dood,\nin die spleet net onder uw vloer,\nwat voor die kleine muis de kans bood\nde rat op te eten als muizenvoer.\n\nGentyl` },
+            { title: "Nietig (02/07/2021)", preview: "We zijn zo complex en toch zo nietig...", text: `We zijn zo complex en toch zo nietig,\ndat maakt me dan ook o zo verdrietig.\n\nZal ik mezelf ooit kunnen uitpluizen,\nrustig houden en bedaren?\nTussen al hun regels en wetten,\ndie mijn expressie beletten.\n\nHet moeten,\nhet varen,\nhet staren en kinderen baren,\nhet spel verplicht te spelen,\nmet iedereen,\nmet zo velen,\ndoor liefde te beminnen,\ndoch nooit te kunnen winnen.\n\nGentyl (Wim Vanhastel)` },
+            { title: "Broodnodig zuur", preview: "De broodjes gingen als warme broodjes...", text: `De broodjes gingen als warme broodjes over de toonbank.\nDe broodjes waren niet warm,\ntoch gingen ze als warme broodjes over de toonbank.\n\nDie broodjes die als warme broodjes over de toonbank gingen waren koud.\nZe hadden zevenendertig jaar in de diepvries gelegen.\nEn toch gingen ze als warme broodjes over de toonbank.\n\nZe waren zuur,\ndie broodjes die als warme broodjes over de toonbank gingen.\nDaardoor vlogen,\ndie broodjes die als warme broodjes over de toonbank gingen,\nniet als zoete broodjes de deur uit,\nmaar gingen ze wel als warme broodjes die toonbank over.\n\nMaar zuur, zuur dat ze waren!\nWaw, het is warm vandaag.\n\nby Gentyl` },
+            { title: "Echt?", preview: "Vroeger was. Nu,...was...", text: `Vroeger was.\nNu,...was.\nMaar nu is nog maar net geweest, of het is al toen,\nwat op zijn beurt weer vroeger is.\nDus vroeger is nu wat toen is geweest!\n\nGentyl` },
+            { title: "Eigen weg wijs", preview: "Ik, ik heb alles zelf aangeleerd...", text: `Ik, ik heb alles zelf aangeleerd, zei de autodidact.\nBij mij was het van moeten, zei de ervaringsdeskundige.\nIk ga af op het gevoel, zei de homeopaat.\nBij mij was't op den tast zei de slechtziende.\nBij mij ook zei de rokkenjager.\n\nIk ga af, echt af en alleen op "mijn" gevoel, zei de psychopaat. Waarom vertel ik u dit eigenlijk?\n\nIk, ik volg het pad wat door Engelen des Heren is uitgestippeld, zei de gelovige.\n\nIk tippel langs het pad die mijn pooier via google maps heeft uitgezocht waar het volgens hem het meest opbrengt.\n\nWablief? zei de slechthorende.\n\nGentyl` },
+            { title: "Isa is", preview: "Ik leef op de rug van een schrijver...", text: `Ik leef op de rug van een schrijver, ik schrijf op de rug van zijn blad.\nIk lees mijn gezicht in zijn vijver, niet wetend of ik dit wel mag.\n\nZo stout of verkeerd en toch echt een fan,\ngeef ik zomaar toe gedichten ik kan.\nDaar niks zeker is, van woord losgerukt,\nkan ik enkel schrijven: "Isa is mijn geluk!"\n\nGentyl` },
+            { title: "Leunen op de leugen (12/06/2023)", preview: "Leunend op de leugens, voorbode van verheugendst...", text: `Leunend op de leugens,\nvoorbode van verheugendst,\nin roes van tijd,\nin roes van drang,\ngevolgd door spijt en eigenbelang.\n\nKnielend aan de zielen,\nvoorbode van vernielen,\nop zoek naar zin,\nin toen en heden,\nmaar weeral niettemin ook zonder reden.\n\nHangend aan de vragen,\nvoorbode van verdragen,\nimmens onwetend,\nteleurgesteld,\nexisterend opvretend en vast gekneld.\n\nSchreeuwend door de eeuwen,\nvoorbode van verderf,\nnet door die onmacht,\nen door die woede,\nnaar die mij baarde en die mij broedde.\n\nGentyl (Wim Vanhastel)` },
+            { title: "Mijn duifke mijn alles", preview: "Ze kent mij zo goed...", text: `Ze kent mij zo goed\nZe is mij soms voor\nAls een vlieg voor mijn neus\nAls een worm in mijn oor\n\nHaar kennis en inzicht\nwat zij heeft over mij\ndie reflectie of spiegel\nLaat me zien, maakt me vrij.\n\nGentyl` },
+            { title: "Niet of, maar wanneer? (01/09/2021)", preview: "Als kind te hebben geleefd, zo onwetend en zo vrij...", text: `Als kind te hebben geleefd, zo onwetend en zo vrij.\nIn onschuld, in vergetelheid, zo zorgeloos en zo blij.\nNet dan komen ze me zeggen en dat het hen ook spijt,\nWe moeten u toch zeggen:"Je hebt maar een beperkte tijd"!\n\nDus dat er een eind aan komt was een klap in mijn gezicht.\nIk was jong en werd volwassen, op weg naar roem en licht.\n\nWas dat een klap in mijn gezicht!\nNatuurlijk raakte ik ontwricht.\nSinds sleurde ik 'hun' zwaar gewicht,\ndoorheen mijn doen en laten.\n\nMaar blijf vooral fit en gezond.\nZo lang en 't liefst boven de grond.\nDoch kunnen wij u helaas niet zeggen,\nwanneer u juist uw koppeke zult leggen.\n\nNiet klagen, niets vragen, niet neuten of zagen.\nSta op tijd op en zoekt u een job.\nNet lijk de reste, met niet te veel geste!\nDoe maar gewoon en zonder vertoon.\n\nMaar nu eerst aan het werk,\nsta je straks hopelijk sterk,\nom een wederhelft te zoeken,\nen het moederhuis te bezoeken.\n\nDus ja, veel werken en heel veel sparen,\nveel geld en mooi gerief vergaren,\nveel werken, geld scheppen en blijven zwoegen,\nhet liefste volcontinue of minstens in drie ploegen.\n\nEigenlijk een beetje zoals de rest\nMaar doe vooral uw best\nwant anders kan het rap gaan\ndat je op straat zal staan\n\nProberen hogerop te komen\nVeel werken aan uw dromen\nverantwoordelijkheid en gezag\nal betaal jij het gelag\n\nGentyl (Wim Vanhastel)` },
+            { title: "Om de hoek", preview: "Wat schuilt om een hoek...", text: `Wat schuilt om een hoek, is pas zichtbaar als je kijkt.\n\nGentyl` },
+            { title: "Omgaan", preview: "Om gaan met het om gaan met!", text: `Om gaan met het om gaan met!\n\nGentyl` },
+            { title: "Seconden tikken weg in...", preview: "Het leven, de wachtzaal van de dood.", text: `Het leven, de wachtzaal van de dood.\n\nGentyl` },
+            { title: "Zijn doel vooruit", preview: "Vooruit gaan is belangrijk...", text: `Vooruit gaan is belangrijk, maar wat is het doel?\nSta daar maar eens bij stil.\n\nGentyl` },
+            { title: "Gentyl - Echt? Echt.", preview: "De kunst is om het leven niet serieus te nemen...", text: `De kunst is om het leven niet serieus te nemen terwijl je het leven niet serieus neemt!\n\nGentyl` },
+            { title: "Beschaamd", preview: "Zijde gij niet beschaamd?", text: `Zijde gij niet beschaamd?\nGe zou moeten beschaamd zijn!\nIk zou beschaamd zijn in uw plaats,...\n\nGentyl` }
         ];
 
         let currentPoemIndex = 0;
@@ -1394,64 +1398,66 @@ Gentyl`
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
-            
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Maak de gedichtenlijst aan
         function createPoemList() {
-            const listContainer = document.getElementById('poemList');
-            poems.forEach((poem, index) => {
-                const card = document.createElement('div');
-                card.className = 'poem-card';
-                card.onclick = () => showPoem(index);
-                card.innerHTML = `
-                    <div class="poem-card-title">${poem.title}</div>
-                    <div class="poem-card-preview">${poem.preview}</div>
-                `;
-                listContainer.appendChild(card);
+            const c = document.getElementById('poemList');
+            poems.forEach((p, i) => {
+                const d = document.createElement('div');
+                d.className = 'poem-card';
+                d.onclick = () => showPoem(i);
+                d.innerHTML = `<div class="poem-card-title">${p.title}</div><div class="poem-card-preview">${p.preview}</div>`;
+                c.appendChild(d);
             });
         }
 
         // Toon een individueel gedicht
-        function showPoem(index) {
-            currentPoemIndex = index;
-            const poem = poems[index];
-            
-            document.getElementById('poemTitle').textContent = poem.title;
-            document.getElementById('poemText').textContent = poem.text;
-            document.getElementById('poemCounter').textContent = `${index + 1} / ${poems.length}`;
-            
-            document.getElementById('prevBtn').disabled = index === 0;
-            document.getElementById('nextBtn').disabled = index === poems.length - 1;
-            
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        function showPoem(i) {
+            currentPoemIndex = i;
+            const p = poems[i];
+            document.getElementById('poemTitle').textContent = p.title;
+            document.getElementById('poemText').textContent = p.text;
+            document.getElementById('poemCounter').textContent = `${i + 1} / ${poems.length}`;
+            document.getElementById('prevBtn').disabled = i === 0;
+            document.getElementById('nextBtn').disabled = i === poems.length - 1;
+            document.querySelectorAll('.page').forEach(pg => pg.classList.remove('active'));
             document.getElementById('poem-detail').classList.add('active');
-            
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Navigatie tussen gedichten
-        function previousPoem() {
-            if (currentPoemIndex > 0) {
-                showPoem(currentPoemIndex - 1);
-            }
+        function previousPoem() { if (currentPoemIndex > 0) showPoem(currentPoemIndex - 1); }
+        function nextPoem() { if (currentPoemIndex < poems.length - 1) showPoem(currentPoemIndex + 1); }
+
+        // Boeken overlay openen en sluiten
+        function openBoekenOverlay() {
+            document.getElementById('boekenOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        function nextPoem() {
-            if (currentPoemIndex < poems.length - 1) {
-                showPoem(currentPoemIndex + 1);
-            }
+        function sluitBoekenOverlay() {
+            document.getElementById('boekenOverlay').classList.remove('active');
+            document.body.style.overflow = '';
         }
+
+        // Sluit overlay met Escape toets
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') sluitBoekenOverlay();
+        });
+
+        // Sluit overlay bij klikken buiten de content
+        document.getElementById('boekenOverlay').addEventListener('click', function(e) {
+            if (e.target === this) sluitBoekenOverlay();
+        });
 
         // Initialiseer de gedichtenlijst bij laden
         createPoemList();
     </script>
-<!-- GoatCounter bezoekersstatistieken -->
-<script data-goatcounter="https://gentyl.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+    <!-- GoatCounter bezoekersstatistieken -->
+    <script data-goatcounter="https://gentyl.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
