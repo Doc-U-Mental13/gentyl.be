@@ -18,7 +18,12 @@
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* INTRO STYLING */
+       .header-inhoud{display:flex;align-items:center;justify-content:center;gap:2rem}
+.header-tekst{text-align:center}
+.foto-container{width:120px;height:120px;border-radius:50%;animation:gloed 3s ease-in-out infinite}
+.header-foto{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block}
+@keyframes gloed{0%{box-shadow:0 0 15px 5px rgba(212,175,55,0.4)}50%{box-shadow:0 0 35px 15px rgba(212,175,55,0.9)}100%{box-shadow:0 0 15px 5px rgba(212,175,55,0.4)}}
+ /* INTRO STYLING */
         .intro { text-align: center; padding: 4rem 2rem; background: rgba(40,40,40,0.6); border-radius: 15px; margin: 2rem 0; border: 2px solid rgba(212,175,55,0.3); }
         .intro h2 { font-size: 2.5rem; color: #d4af37; margin-bottom: 2rem; font-style: italic; }
         .intro p { font-size: 1.3rem; line-height: 2; margin: 1.5rem 0; color: #ccc; }
@@ -196,9 +201,16 @@
 </head>
 <body>
     <header>
-        <h1>Gentyl</h1>
-        <p class="subtitle">Portfolio van Wim Vanhastel</p>
-    </header>
+    <div class="header-inhoud">
+        <div class="header-tekst">
+            <h1>Gentyl</h1>
+            <p class="subtitle">Portfolio van Wim Vanhastel</p>
+        </div>
+        <div class="foto-container">
+            <img src="images/gentyl-portret-logo.png" alt="Gentyl portret" class="header-foto">
+        </div>
+    </div>
+</header>
 
     <nav>
         <button onclick="showPage('home')" class="nav-btn active">Home</button>
