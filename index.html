@@ -1,5 +1,115 @@
 <!DOCTYPE html>
 <html lang="nl">
+<link rel="stylesheet" href="https://unpkg.com/applause-button/dist/applause-button.css">
+<script src="https://unpkg.com/applause-button/dist/applause-button.js"></script>
+
+<!-- Eigen stijl voor de bezoekerssectie -->
+<style>
+    /* Stijl voor de volledige bezoekerssectie */
+    .bezoekers-sectie {
+        max-width: 700px;
+        margin: 4rem auto;
+        padding: 2.5rem;
+        background: rgba(40, 40, 40, 0.8);
+        border-radius: 15px;
+        border: 2px solid rgba(212, 175, 55, 0.4);
+        text-align: center;
+    }
+
+    .bezoekers-sectie h3 {
+        color: #d4af37;
+        font-size: 1.8rem;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
+
+    .bezoekers-sectie p {
+        color: #888;
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    /* Applause knop aanpassen naar gouden stijl */
+    applause-button {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 2rem;
+        display: block;
+        --clap-button-color: #d4af37;
+    }
+
+    /* Scheidingslijn tussen duimpje en formulier */
+    .bezoekers-divider {
+        border: none;
+        border-top: 1px solid rgba(212, 175, 55, 0.3);
+        margin: 2rem 0;
+    }
+
+    /* "Ik was hier!" formulier */
+    .ik-was-hier-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .ik-was-hier-form h4 {
+        color: #d4af37;
+        font-size: 1.2rem;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
+
+    .ik-was-hier-form input,
+    .ik-was-hier-form textarea {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #555;
+        background: #2a2a2a;
+        color: white;
+        font-size: 1rem;
+        font-family: 'Georgia', serif;
+        resize: vertical;
+    }
+
+    .ik-was-hier-form input:focus,
+    .ik-was-hier-form textarea:focus {
+        outline: none;
+        border-color: #d4af37;
+    }
+
+    /* Verzendknop */
+    .ik-was-hier-form button {
+        background: #d4af37;
+        color: #000;
+        border: none;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        font-family: 'Georgia', serif;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .ik-was-hier-form button:hover {
+        background: #f0c050;
+        transform: translateY(-2px);
+    }
+
+    /* Bevestigingsbericht na verzenden */
+    .bedankt-bericht {
+        display: none;
+        color: #d4af37;
+        font-style: italic;
+        font-size: 1.1rem;
+        padding: 1rem;
+        background: rgba(212, 175, 55, 0.1);
+        border-radius: 8px;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -254,8 +364,54 @@
                     <a href="https://youtu.be/lM6GQSwZ-8o" target="_blank" class="video-link">Bekijk op YouTube →</a>
                 </div>
             </div>
-        </div>
 
+            <!-- *** BEZOEKERSSECTIE: applaus + ik was hier *** -->
+            <div class="bezoekers-sectie">
+                <h3>👏 Vond je het de moeite?</h3>
+                <p>Geef een applausje als je iets mooi vond!</p>
+
+                <!-- Applause knop - telt automatisch klapjes op -->
+                <applause-button
+                    color="#d4af37"
+                    multiclap="true"
+                    url="gentyl.be">
+                </applause-button>
+
+                <!-- Scheidingslijn -->
+                <hr class="bezoekers-divider">
+
+                <!-- "Ik was hier!" mini-formulier -->
+                <form class="ik-was-hier-form"
+                      action="https://formspree.io/f/mreennoz"
+                      method="POST"
+                      onsubmit="toonBedankt(event)">
+
+                    <input type="hidden" name="_subject" value="Ik was hier! - Gentyl bezoeker">
+
+                    <h4>✍️ Laat een spoor achter...</h4>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Jouw naam (optioneel)">
+
+                    <textarea
+                        name="message"
+                        rows="3"
+                        placeholder="Een kort berichtje... (optioneel)"></textarea>
+
+                    <button type="submit">Ik was hier! 👋</button>
+                </form>
+
+                <!-- Bevestiging na verzenden -->
+                <div class="bedankt-bericht" id="bedanktBericht">
+                    Merci voor je bezoek! 🙏
+                </div>
+            </div>
+            <!-- *** EINDE BEZOEKERSSECTIE *** -->
+
+        </div>
+     
         <!-- VIDEOS PAGE -->
         <div id="videos" class="page">
             <div class="section-header"><h2>Video's</h2><p>Klik op play om te bekijken</p></div>
@@ -783,16 +939,7 @@
 
     <!-- FOOTER -->
     <footer>
-        <div style="max-width: 500px; margin: 0 auto 2rem;">
-            <h3 style="color: #d4af37; margin-bottom: 1rem;">Snel Contact</h3>
-            <form action="https://formspree.io/f/mreennoz" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
-                <input type="text" name="name" placeholder="Naam" required style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; font-size: 0.95rem;">
-                <input type="email" name="email" placeholder="Email" required style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; font-size: 0.95rem;">
-                <textarea name="message" placeholder="Bericht" required rows="3" style="padding: 0.7rem; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: white; resize: vertical; font-size: 0.95rem;"></textarea>
-                <button type="submit" style="background: #d4af37; color: #000; border: none; padding: 0.8rem; font-size: 1rem; border-radius: 5px; cursor: pointer; font-weight: bold;">Versturen</button>
-            </form>
-        </div>
-        <p style="margin-top: 2rem;">Gentyl (Wim Vanhastel)</p>
+                <p style="margin-top: 2rem;">Gentyl (Wim Vanhastel)</p>
         <p>© 2025 - Alle rechten voorbehouden</p>
     </footer>
 
@@ -893,7 +1040,24 @@
         }
 
         // Gedichtenlijst aanmaken bij laden
+/* Toon bedankbericht na verzenden "Ik was hier!" formulier */
+function toonBedankt(e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = new FormData(form);
+    fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    }).then(function(response) {
+        if (response.ok) {
+            form.style.display = 'none';
+            document.getElementById('bedanktBericht').style.display = 'block';
+        }
+    });
+}
         createPoemList();
+
     </script>
 
     <!-- GoatCounter bezoekersstatistieken -->
